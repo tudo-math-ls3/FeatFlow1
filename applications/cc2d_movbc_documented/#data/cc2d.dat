@@ -1,0 +1,110 @@
+----- ======================================================================
+----- File for input data for cc2d
+----- ======================================================================
+----- unit numbers and file names on /FILES/:
+-----------------------------------------------
+1                  IMESH  (PARAM:  0=FEAT-parametrization (hard coded in parq2d.f),1=OMEGA parametrization (read from file CPARM))
+0                  IRMESH (TRIANG: 0=create mesh, >0=read triangulation CMESH (>1: formatted))
+'#pre/bench1.prm'  CPARM  (PARAM:  name of parametrization file) 
+'#pre/bench1.tri'  CMESH  (TRIANG: name of coarse mesh file)
+'#data/cc2d.u'     CFILE  (OUTPUT: name of protocol file)
+0                  ISTART (DISCR:  start vector of the iteration. 0=ZERO, <>0: read from CSTART; 1=NLMAX,2=NLMAX-1,<0=formatted)
+'#data/DX4'        CSTART (DISCR:  name of start solution file)
+0                  ISOL   (DISCR:  write file with solution CSOL. 0=don't write,1=unformatted,-1=formatted)
+'#data/DX4'        CSOL   (DISCR:  name of final solution file)
+------------------------------------------------
+----- Values for /OUTPUT/ :
+------------------------------------------------
+0        M       (OUTPUT: level of output to file; 0=least output, 2=standard)
+2        MT      (OUTPUT: level of output to terminal; 0=least output, 2=standard; 3=show MG output)
+0        ICHECK  (OUTPUT: type of error checking; 0=standard)
+2        MSHOW   (OUTPUT: 1=file output,2=file+terminal output=standard)
+------------------------------------------------
+----- Values for /IPARM/,etc :
+------------------------------------------------
+1        NLMIN   (DISCR: minimum mg-level)
+3        NLMAX   (DISCR: maximum mg-level = level of computation of nonlinear iteration)
+3        IELT    (DISCR: Type of element; 0=E031,1=E030,2=E031M,3=E030M=standard)
+0        ISTOK   (DISCR: Type of equation; 0=Navier Stokes, 1=Stokes calculation)
+0        IRHS    (TIMEDISCR: Type of right hand side. 0=zero,1=steady inhomog.,2=nonsteady force)
+2        IBDR    (DISCR: Type of bdry. conditions; 0=DIRICHLET,1=Pressure drop,2=NEUMANN part)
+0        IERANA  (POST: >0=error analysis (=quadrature formula) with exact reference function)
+0        IMASS   (DISCR: Generation of mass matrix. 0=lumped mass,1=real mass matrix)
+0        IMASSL  (DISCR: Type of lumping of the mass matrix. 0=usual lumping,1=diagonal lumping)
+0        IUPW    (DISCR: Type of stabilization of the convective term. 0=SD, 1=upwind)
+0        IPRECA  (DISCR: Generation of velocity matrix blocks A; 0=1=double prec.,2=3=double prec. from disk for M/ST,4=regenerate both, linear ST/M parts and nonlinear convective parts in each time step; standard=0)
+3        IPRECB  (DISCR: Generation of pressure matrix blocks B; 0=1=double prec. with standard quadrature,2=double prec. elementwise,3=4=double precision with exact quadrature; standard=3)
+3        ICUBM   (DISCR: cubature formula for M (Mass matrix))
+4        ICUBA   (DISCR: cubature formula for ST (Stokes/Laplacian matrix))
+4        ICUBN   (DISCR: cubature formula for N (Nonlinear matrices if IPRECA=4))
+4        ICUBB   (DISCR:     -  "  -      for B (Pressure matrices))
+1        ICUBF   (DISCR:     -  "  -      for F (RHS))
+1        INLMIN  (NONLIN: min number of nonlinear iterations; in nonstationary simulations: per time step; 1=standard)
+20       INLMAX  (NONLIN: max number of nonlinear iterations; in nonstationary simulations: per time step, or 1=lin extrap. in time,-1=const extrap. in time)
+0        ICYCLE  (MG: type of mg-cycle for U: 0=F=standard,1=V,2=W)
+2        ILMIN   (MG: minimum of linear mg steps; 2=standard)
+10       ILMAX   (MG: maximum of linear mg steps; 10=standard)
+-2       IINT    (MG: prol. for velocity/pressure: 1=tril/const, 2=tril/tril, 3=extended tril/const, 4=extended tril/tril; >0: midpoint-orienTed interp.=EM31; <0: integral mean val. interpol=EM30; should coincide with IELT!)
+3        IAVPR   (MG: if IINTU=3,4: type of averaging to use in extended prolongation/restriction: 3=standard; 0=simple averaging in both, prol. and rest.; Bit0=weighted averaging by element size (L2 projection) in prolongation, Bit1=weighted averaging by element size (L2 projection) in restriction, Bit2(additionally to Bit 0)=weighted averaging by element size of neighbour element instead of L2-proj. in prolongation, Bit3(additionally to Bit 1)=weighted averaging by element size of neighbour element instead of L2-proj. in restriction)
+0        IAPRM   (MG/DISCR: configure adaptive P/R/matrix generation; standard=7; 0=no adaptive P/R/M. Bit0=switch to constant prol.(if IINT=3,4), depending on DPREP; Bit1=switch to constant rest. (if IINT=3,4), depending on DPREP; Bit2=switch to constant mat. gen., depending on DMTEP; Bit3(additionally to Bit0)=switch prolongation depenting on size of neighbour element, too; Bit4(additionally to Bit1)=switch restriction depenting on size of neighbour element, too; Bit5(additionally to Bit2)=switch mat. gen. depenting on size of neighbour element, too)
+1        ISM     (MG: smoother: 1=simple VANCA)
+1        ISL     (MG: coarse grid solver: 1=simple VANCA)
+4        NSM     (MG: number of pre/postsmoothing steps; 4=standard)
+1000     NSL     (MG: maximum of solver-iterations of coarse grid solver; 1=standard)
+1        NSMFAC  (MG: factor for pre/postsm. steps on coarser levels; 1=standard)
+------------------------------------------------
+----- Values for /RPARM/,etc. :
+------------------------------------------------
+1000D0   RE      (DISCR: viscosity parmeter 1/NU)
+0.1D0    UPSAM   (DISCR: parameter for upwind/SD)
+ 0.0D0   OMGMIN  (NONLIN: lower limit for opt. OMEGA in nonlinear defect correction, <0 no rel. changes) 
+ 2.0D0   OMGMAX  (NONLIN: upper limit for opt. OMEGA in nonlinear defect correction, <0 no rel. changes)
+ 1.0D0   OMGINI  (NONLIN: start value limit for opt. OMEGA in nonlinear defect correction)
+1.0D-5   EPSD    (NONLIN: limit for U-defects), standard = 1.0D-5
+1.0D-5   EPSDIV  (NONLIN: limit for DIV-defects), standard = 1.0D-5
+1.0D-5   EPSUR   (NONLIN: limit for U-changes), standard = 1.0D-5
+1.0D-5   EPSPR   (NONLIN: limit for P-changes), standard = 1.0D-5
+1.0D-1   DMPD    (NONLIN: limit for defect improvement)
+1.0D-1   DMPMG   (MG: damping of residuals for mg-it., i.e. reduction of relative error of U on finest grid; smaller -> more MG iterations)
+1.0D-1   EPSMG   (MG: limit for residuals for mg-it.)
+1.0D-2   DMPSL   (MG: damping of residuals for solving, i.e. reduction of relative error of U on coarse grid; smaller -> more coarse grid iterations)
+1.0D-2   EPSSL   (MG: limit for residuals for solving)
+0.9D0    RLXSM   (MG: relaxation for the smoother; standard = 1D0)
+0.7D0    RLXSL   (MG: relaxation for the solver; standard = 0.7D0)
+-1.0D1   AMINMG  (MG: lower limit for optimal MG-ALPHA; controls damping of coarse grid correction; Standard=-10.0)
+ 1.0D1   AMAXMG  (MG: upper limit for optimal MG-ALPHA; controls damping of coarse grid correction; Standard=10.0)
+-1D0     DPREP   (MG: if IELT=2/3 and |INT|=3/4: treshold parameter: switch from bilinear interpol. to piecewise constant interpol. if aspect ratio of a particular element is >= DPREPS; 0D0=always; 20D0=standard; -1D0=infinity=never switch)
+-1D0     DMTEP   (MG: treshold parameter: switch construction of coarse grid matrices from standard finite element approach to locally constant interpolation for all rows belonging to elements with aspect ratio >= DMTEPS; 0D0=all elements; 20D0=standard; -1D0=infinity=no matrix modifications)
+------------------------------------------------
+----- Values for /NS.../ :
+------------------------------------------------
+0             ISTAT   (TIMEDISCR: type of problem: 0=steady,1=nonsteady)
+9             NITNS   (TIMEDISCR: maximum number of macro time steps)
+1D-5          EPSNS   (TIMEDISCR: lower limit for time derivative; solutions dropping below this value in nonsteady simulations are treated as steady and stop the calculation)
+0.000000000D0 TIMENS  (TIMEDISCR: absolute start time of the simulation)
+1D0           THETA   (TIMEDISCR: parameter for one step scheme if IFRSTP=0; =0:Forward Euler(instable), =1: Backward Euler, =0.5: Crank-Nicolson)
+0.010000000D0 TSTEP   (TIMEDISCR: initial time step size)
+1             IFRSTP  (TIMEDISCR: Time-stepping scheme; 0=one step scheme, 1=fractional step)
+0             INSAV   (POST: Output of the intermediate solution vectors to files on disc; 0=no output,>0=save solution to disc every INSAV steps)
+0             INSAVN  (POST: modulo number of filenames when writing solution vectors to disc in nonstationary simulations; <=10 !)
+0.000000000D0 DTFILM  (POST: time difference for film output - contains velocity/pressure in vertices including bdry cond.; 0.0=write all film files to disc)
+0.000000000D0 DTAVS   (POST: time difference for AVS output; 0.0=write all AVS files to disc)
+0.000000000D0 DTGMV   (POST: time difference for GMV output; 0.0=write all GMV files to disc)
+0             IFUSAV  (POST: film output: level for unformatted velocity)
+0             IFPSAV  (POST: film output: level for unformatted pressure)
+0             IFXSAV  (POST: film output: level for unformatted streamlines)
+0             IAVS    (POST: level for AVS-output; >= NLMAX: write on maximum level)
+9             IGMV    (POST: level for GMV-output; >= NLMAX: write on maximum level)
+1             IFINIT  (POST: start file number for film output)
+-1            IADTIM  (TIMEDISCR: Adaptive time stepping; 0=no,1=with prediction, no repetition if MG fails,2=with prediction, repetition if MG fails,3=with prediction, repetition if MG fails or time error too large, <0=with extrapolation in time)
+100.0000000D0 TIMEMX  (TIMEDISCR: max. absolute time of the simulation)
+0.000001000D0 DTMIN   (TIMEDISCR: min. time step)
+1.000000001D0 DTMAX   (TIMEDISCR: max. time step)
+9.000000001D0 DTFACT  (TIMEDISCR: max. changes for time step)
+0.500000000D0 TIMEIN  (TIMEDISCR: time for start procedure; must be >0 if IADTIM<>0, otherwise nonsteady simulations will stuck at the initial time reducing the time step size to 0.0 )
+1.25D-1       EPSADI  (TIMEDISCR: low   accuracy for acceptance in start procedure)
+1.25D-3       EPSADL  (TIMEDISCR: low   accuracy for acceptance after start procedure)
+0.50D0        EPSADU  (TIMEDISCR: upper limit for acceptance for |IADTIM|=3)
+1             IEPSAD  (TIMEDISCR: Type of error control for adaptive time stepping; 1=u(L2),2=u(MX),3=p(L2),4=p(MX),5-8=mix)
+2             IADIN   (TIMEDISCR: type of start procedure; 0=constant,1=linear,2=logarith. start)
+3             IREPIT  (TIMEDISCR: max. number of repetitions for |IADTIM|=3)

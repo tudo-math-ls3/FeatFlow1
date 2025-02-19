@@ -1,0 +1,197 @@
+#!/usr/bin/avs -network
+version 5.02 (50.62 SunOS4)
+module "generate colormap.user.0" -xy 349,14
+module "ucd to geom.user.2" -xy 651,284 -ex $Path/avs_library/ucd_multm
+module "ucd legend.user.3" -xy 359,234 -ex $Path/avs_library/ucd_legend
+module "ucd extract scalars.user.4" -xy 489,114 -ex $Path/avs_library/ucd_multm
+module "geometry viewer.user.6" -xy 549,354
+module "ucd isolines.user.7" -xy 458,299 -ex $Path/avs_library/ucd_multm
+module "read ucd.user.8" -xy 638,29 -ex $Path/avs_library/ucd_multm
+port_connect "generate colormap.user.0":0 "ucd isolines.user.7":1
+port_connect "generate colormap.user.0":0 "ucd legend.user.3":1
+port_connect "ucd to geom.user.2":0 "geometry viewer.user.6":0
+port_connect "ucd legend.user.3":1 "ucd isolines.user.7":2
+port_connect "ucd extract scalars.user.4":0 "ucd isolines.user.7":0
+port_connect "ucd extract scalars.user.4":0 "ucd legend.user.3":0
+port_connect "ucd isolines.user.7":0 "geometry viewer.user.6":0
+port_connect "read ucd.user.8":0 "ucd to geom.user.2":0
+port_connect "read ucd.user.8":0 "ucd extract scalars.user.4":0
+parm_set "ucd to geom.user.2":mode "External Edges"
+geom_set_scene -scene "geometry viewer.user.6"
+geom_set_camera_name "Camera 1"
+geom_resize_camera -view "Camera 1" 457 447
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0 0 -12
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -polygonal_spheres 0 -view "Camera 1"
+geom_set_view_modes -stereo 0 -view "Camera 1"
+geom_set_view_modes -head_tracking 1 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+geom_set_camera_params -view "Camera 1" -front -88 -back 112
+geom_set_depth_cue_params "Camera 1" -scale 0.1
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+geom_set_matrix   -mat \
+                  3.78788    0    0    0 \
+                    0    3.78788    0    0 \
+                    0    0    3.78788    0 \
+                    -4.16667    -1.81629    -5.68182    1 
+geom_set_position   0 0 -2.38419e-07
+geom_set_obj_window -0.22 2.42 -0.041 1 0 3
+#
+# State for object: "iso surf"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd iso.user.1"
+geom_create_obj "iso surf" -mod "ucd iso.user.1"
+geom_set_trans_mode parent
+geom_set_obj_window 0 1 0 1 0 3
+geom_set_name_context
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd to geom.user.2"
+geom_create_obj "ucd geom" -mod "ucd to geom.user.2"
+geom_set_trans_mode parent
+geom_set_obj_window -0.22 2.42 -0.041 0.451 0 0
+geom_set_name_context
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd isolines.user.7"
+geom_create_obj "ucd isoline" -mod "ucd isolines.user.7"
+geom_set_trans_mode parent
+geom_set_name_context
+geom_set_cur_cli_obj -pop
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 155,86 -wh 259,1024
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,99 -wh 258,744\
+   -P columns integer 1
+   panel "generate colormap.user.0" -w panel -p "Top Level Stack" \
+       -xy 0,64 -wh 257,565
+    manipulator "generate colormap.user.0:colormap" -w color_editor -p "generate colormap.user.0" \
+        -xy 10,10 -wh 236,417
+    manipulator "generate colormap.user.0:lo value" -w dial -p "generate colormap.user.0" \
+        -xy 10,425 -wh 90,130
+    manipulator "generate colormap.user.0:hi value" -w dial -p "generate colormap.user.0" \
+        -xy 99,425 -wh 90,130
+   panel "ucd to geom.user.2" -w panel -p "Top Level Stack" -xy 0,64 -wh 227,410
+    manipulator "ucd to geom.user.2:Shrink" -w toggle -p "ucd to geom.user.2" -hide \
+        -xy 10,10 -wh 118,21
+    manipulator "ucd to geom.user.2:Shrink Factor" -w idial -p "ucd to geom.user.2" \
+        -xy 129,10 -wh 90,130\
+   -P title string "Edge Angle"
+    manipulator "ucd to geom.user.2:Geometry Display Mode" -w text -p "ucd to geom.user.2" \
+        -xy 10,138 -wh 178,21
+    manipulator "ucd to geom.user.2:mode" -w radio_buttons -p "ucd to geom.user.2" \
+        -xy 10,160 -wh 178,65
+    manipulator "ucd to geom.user.2:Explode Materials" -w toggle -p "ucd to geom.user.2" \
+        -xy 10,226 -wh 118,21
+    manipulator "ucd to geom.user.2:Explode Factor" -w idial -p "ucd to geom.user.2" \
+        -xy 129,226 -wh 90,130
+    manipulator "ucd to geom.user.2:Save Geometry" -w toggle -p "ucd to geom.user.2" \
+        -xy 10,356 -wh 118,21
+    manipulator "ucd to geom.user.2:Color Cells" -w toggle -p "ucd to geom.user.2" -hide \
+        -xy 10,379 -wh 118,21
+   panel "ucd legend.user.3" -w panel -p "Top Level Stack" -xy 0,150 -wh 229,323
+    manipulator "ucd legend.user.3:Node Data" -w text -p "ucd legend.user.3" \
+        -xy 10,10 -wh 118,21
+    manipulator "ucd legend.user.3:node data" -w radio_buttons -p "ucd legend.user.3" \
+        -xy 10,32 -wh 118,108
+    manipulator "ucd legend.user.3:value" -w dial -p "ucd legend.user.3" -hide \
+        -xy 129,32 -wh 90,130
+    manipulator "ucd legend.user.3:lo value" -w dial -p "ucd legend.user.3" \
+        -xy 10,160 -wh 90,130
+    manipulator "ucd legend.user.3:hi value" -w dial -p "ucd legend.user.3" \
+        -xy 99,160 -wh 90,130
+    manipulator "ucd legend.user.3:range" -w toggle -p "ucd legend.user.3" \
+        -xy 10,291 -wh 118,21
+   panel "ucd extract scalars.user.4" -w panel -p "Top Level Stack" \
+       -xy 0,172 -wh 139,571
+    manipulator "ucd extract scalars.user.4:Channel 0" -w toggle -p "ucd extract scalars.user.4" \
+        -xy 10,10 -wh 118,21\
+   -P title string "vel"
+    manipulator "ucd extract scalars.user.4:Channel 1" -w toggle -p "ucd extract scalars.user.4" \
+        -xy 10,32 -wh 118,21\
+   -P title string "p"
+    manipulator "ucd extract scalars.user.4:Channel 2" -w toggle -p "ucd extract scalars.user.4" \
+        -xy 10,53 -wh 118,21\
+   -P title string "iso"
+    manipulator "ucd extract scalars.user.4:Channel 3" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,75 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 4" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,98 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 5" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,120 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 6" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,141 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 7" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,163 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 8" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,186 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 9" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,208 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 10" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,229 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 11" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,251 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 12" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,275 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 13" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,297 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 14" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,318 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 15" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,340 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 16" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,363 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 17" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,385 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 18" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,406 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 19" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,428 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 20" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,451 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 21" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,473 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 22" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,494 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 23" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,517 -wh 118,21
+    manipulator "ucd extract scalars.user.4:Channel 24" -w toggle -p "ucd extract scalars.user.4" -hide \
+        -xy 10,539 -wh 118,21
+   panel "ucd isolines.user.7" -w panel -p "Top Level Stack" \
+       -xy 0,172 -wh 229,302
+    manipulator "ucd isolines.user.7:Node Data" -w text -p "ucd isolines.user.7" \
+        -xy 10,10 -wh 118,21
+    manipulator "ucd isolines.user.7:node data" -w radio_buttons -p "ucd isolines.user.7" \
+        -xy 10,32 -wh 118,108
+    manipulator "ucd isolines.user.7:Isoline Number" -w idial -p "ucd isolines.user.7" \
+        -xy 129,32 -wh 90,130
+    manipulator "ucd isolines.user.7:Low Level" -w dial -p "ucd isolines.user.7" \
+        -xy 10,162 -wh 90,130
+    manipulator "ucd isolines.user.7:High Level" -w dial -p "ucd isolines.user.7" \
+        -xy 100,162 -wh 90,130
+   panel "read ucd.user.8" -w panel -p "Top Level Stack" -xy 0,172 -wh 258,217
+    manipulator "read ucd.user.8:read file" -w browser -p "read ucd.user.8" \
+        -xy 10,10 -wh 237,196
+ panel "geometry viewer.user.6!display" -w container -p ui -xy 268,158 -wh 565,586\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.6":object -w none
+manipulator "geometry viewer.user.6":"Update Always" -w none
+manipulator "geometry viewer.user.6":"Update Image" -w none
+# End of file

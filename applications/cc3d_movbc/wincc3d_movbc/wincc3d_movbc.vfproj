@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="8.00" ProjectIdGuid="{736E07BE-70B2-4C8B-AC65-D856017B7F8A}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="$(ProjectDir)\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" Traceback="true" RuntimeLibrary="rtSingleThreadedDebug" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/wincc3d_movbc.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" ProgramDatabaseFile="$(OUTDIR)/wincc3d_movbc.pdb" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration>
+		<Configuration Name="Release|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" MustRebuild="true" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" AdditionalIncludeDirectories="$(ProjectDir)\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" SwitchesHaveChanged="true" MustRebuild="true" OutputFile="$(OUTDIR)/wincc3d_movbc.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\indat3d.f"/>
+		<File RelativePath="..\parq3d.f"/>
+		<Filter Name="src">
+		<File RelativePath="..\src\avs3d.f"/>
+		<File RelativePath="..\src\bmul.f"/>
+		<File RelativePath="..\src\bndry.f"/>
+		<File RelativePath="..\src\cc3d.f"/>
+		<File RelativePath="..\src\coeff.f"/>
+		<File RelativePath="..\src\dfkt.f"/>
+		<File RelativePath="..\src\error.f"/>
+		<File RelativePath="..\src\fpost.f"/>
+		<File RelativePath="..\src\gupwd.f"/>
+		<File RelativePath="..\src\init1.f"/>
+		<File RelativePath="..\src\matmul.f"/>
+		<File RelativePath="..\src\mgrout.f"/>
+		<File RelativePath="..\src\mgstp.f"/>
+		<File RelativePath="..\src\nsdef.f"/>
+		<File RelativePath="..\src\optcnl.f"/>
+		<File RelativePath="..\src\rdparm.f"/>
+		<File RelativePath="..\src\supwdg.f"/>
+		<File RelativePath="..\src\util.f"/>
+		<File RelativePath="..\src\vanca.f"/>
+		<File RelativePath="..\src\xmrout.f"/>
+		<File RelativePath="..\src\zvalue1.f"/></Filter></Filter>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\cc3d.inc"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath="..\#data\cc3d_movbc.dat"/></Filter></Files>
+	<Globals/></VisualStudioProject>

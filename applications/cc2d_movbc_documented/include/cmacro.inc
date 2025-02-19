@@ -1,0 +1,13 @@
+************************************************************************
+*
+************************************************************************
+
+      INTEGER NMAEL,NMAVT,NMAEDG,NMAVE,NMAVEL,NMABCT,NMAVBD
+      INTEGER LMACVG,LMACMG,LMAVT,LMAMID,LMAADJ,LMAVEL,LMAMEL
+      INTEGER LMANPR,LMAMM,LMAVBD,LMAEBD,LMABCT,LMAVBP,LMAMBP
+      INTEGER LMAVE
+
+      COMMON /MACROD/ NMAEL,NMAVT,NMAEDG,NMAVE,NMAVEL,NMABCT,NMAVBD
+      COMMON /MACROA/ LMACVG,LMACMG,LMAVT,LMAMID,LMAADJ,LMAVEL,LMAMEL,
+     *                LMANPR,LMAMM,LMAVBD,LMAEBD,LMABCT,LMAVBP,LMAMBP,
+     *                LMAVE

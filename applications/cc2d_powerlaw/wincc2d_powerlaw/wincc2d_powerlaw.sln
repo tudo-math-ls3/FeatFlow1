@@ -1,0 +1,57 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "wincc2d_powerlaw", "wincc2d_powerlaw.vfproj", "{40434DD4-14F1-4A64-AAA8-DA27A90F77BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DBF26343-133F-449F-966D-436DD8DDED89} = {DBF26343-133F-449F-966D-436DD8DDED89}
+		{68ADC252-6B02-4476-BE10-617E85A18EAC} = {68ADC252-6B02-4476-BE10-617E85A18EAC}
+		{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD} = {1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}
+		{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6} = {5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}
+	EndProjectSection
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "winblas", "..\..\..\libraries\blas\winblas\winblas.vfproj", "{DBF26343-133F-449F-966D-436DD8DDED89}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "winfeat2d", "..\..\..\libraries\feat2d\winfeat2d\winfeat2d.vfproj", "{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "winlibumfpack2", "..\..\..\libraries\umfpack2\winumfpack2\winlibumfpack2.vfproj", "{68ADC252-6B02-4476-BE10-617E85A18EAC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "winlapack", "..\..\..\libraries\lapack\winlapack\winlapack.vfproj", "{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{40434DD4-14F1-4A64-AAA8-DA27A90F77BF}.Debug.ActiveCfg = Debug|Win32
+		{40434DD4-14F1-4A64-AAA8-DA27A90F77BF}.Debug.Build.0 = Debug|Win32
+		{40434DD4-14F1-4A64-AAA8-DA27A90F77BF}.Release.ActiveCfg = Release|Win32
+		{40434DD4-14F1-4A64-AAA8-DA27A90F77BF}.Release.Build.0 = Release|Win32
+		{DBF26343-133F-449F-966D-436DD8DDED89}.Debug.ActiveCfg = Debug|Win32
+		{DBF26343-133F-449F-966D-436DD8DDED89}.Debug.Build.0 = Debug|Win32
+		{DBF26343-133F-449F-966D-436DD8DDED89}.Release.ActiveCfg = Release|Win32
+		{DBF26343-133F-449F-966D-436DD8DDED89}.Release.Build.0 = Release|Win32
+		{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}.Debug.ActiveCfg = Debug|Win32
+		{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}.Debug.Build.0 = Debug|Win32
+		{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}.Release.ActiveCfg = Release|Win32
+		{5B2DCCE7-1905-4353-A598-E8DDB08B0FB6}.Release.Build.0 = Release|Win32
+		{68ADC252-6B02-4476-BE10-617E85A18EAC}.Debug.ActiveCfg = Debug|Win32
+		{68ADC252-6B02-4476-BE10-617E85A18EAC}.Debug.Build.0 = Debug|Win32
+		{68ADC252-6B02-4476-BE10-617E85A18EAC}.Release.ActiveCfg = Release|Win32
+		{68ADC252-6B02-4476-BE10-617E85A18EAC}.Release.Build.0 = Release|Win32
+		{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}.Debug.ActiveCfg = Debug|Win32
+		{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}.Debug.Build.0 = Debug|Win32
+		{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}.Release.ActiveCfg = Release|Win32
+		{1F07EB5A-7D4B-4F54-8BD5-91AE15CF69DD}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

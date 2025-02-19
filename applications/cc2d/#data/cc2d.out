@@ -1,0 +1,167 @@
+--------------------------------------------------------------------------------
+         INPUT DATA
+--------------------------------------------------------------------------------
+ Parametrization file = #pre/c2d.prm                                                
+ Coarse grid file     = #adc/c2d2.tri                                               
+ Integer parameters of /IPARM/,etc. :
+--------------------------------------------------------------------------------
+ minimum mg-level:  NLMIN =            1
+ maximum mg-level:  NLMAX =            3
+ element type   =            3
+ Stokes calculation:  ISTOK =            0
+ RHS    generation   =            0
+ Boundary generation =            1
+ Error evaluation    =            0
+ mass evaluation     =            0
+ lumped mass eval.   =            0
+ convective part     =            0
+ Accuracy for ST     =            4
+ Accuracy for B      =            3
+ ICUB mass matrix        =            3
+ ICUB diff. matrix       =            4
+ ICUB conv. matrix       =            4
+ ICUB matrices B1,B2     =            8
+ ICUB right hand side    =            1
+ minimum of nonlinear iterations: INLMIN =            1
+ maximum of nonlinear iterations: INLMAX =           10
+ type of mg-cycle:  ICYCLE =            0
+ minimum of linear mg steps :  ILMIN =            1
+ maximum of linear mg steps :  ILMAX =            5
+ type of interpolation:  IINT =            2
+ type of smoother :  ISM =            1
+ type of solver :  ISL =            1
+ number of smoothing steps :  NSM =            4
+ number of solver steps :  NSL =          100
+ factor sm. steps on coarser lev.:NSMFAC=           2
+ KPRSM,KPOSM ON LEVEL:            1          16          16
+ KPRSM,KPOSM ON LEVEL:            2           8           8
+ KPRSM,KPOSM ON LEVEL:            3           4           4
+ KPRSM,KPOSM ON LEVEL:            4           4           4
+ KPRSM,KPOSM ON LEVEL:            5           4           4
+ KPRSM,KPOSM ON LEVEL:            6           4           4
+ KPRSM,KPOSM ON LEVEL:            7           4           4
+ KPRSM,KPOSM ON LEVEL:            8           4           4
+ KPRSM,KPOSM ON LEVEL:            9           4           4
+ Real parameters of /RPARM/,etc. :
+--------------------------------------------------------------------------------
+ Viscosity parameter:  1/NU =    1000.0000000000000     
+ parameter for Samarskij-upwind:  UPSAM =   0.50000000000000000     
+ lower limit for optimal OMEGA: OMGMIN =    0.0000000000000000     
+ upper limit for optimal OMEGA: OMGMAX =    2.0000000000000000     
+ start value for optimal OMEGA: OMGINI =    1.0000000000000000     
+ limit for U-defects   :        EPSD   =    1.0000000000000001E-005
+ limit for DIV-defects :        EPSDIV =    1.0000000000000000E-008
+ limit for U-changes :          EPSUR  =    1.0000000000000000E-003
+ limit for P-changes :          EPSPR  =    1.0000000000000000E-003
+ defect improvement  :          DMPD   =   0.10000000000000001     
+ damping of MG residuals     :  DMPMG  =   0.10000000000000001     
+ limit for MG residuals      :  EPSMG  =   0.10000000000000001     
+ damping of residuals for solving:  DMPSL =   0.10000000000000001     
+ limit of changes for solving:    EPSSL =   0.10000000000000001     
+ relaxation for the U-smoother: RLXSM =    1.0000000000000000     
+ relaxation for the U-solver :  RLXSL =    1.0000000000000000     
+ lower limit optimal MG-ALPHA: AMINMG =   -10.000000000000000     
+ upper limit optimal MG-ALPHA: AMAXMG =    10.000000000000000     
+ Parameters of /NS.../ :
+--------------------------------------------------------------------------------
+ Time dependency          : ISTAT  =            0
+ Number of time steps     : NITNS  =            9
+ limit for time derivative: EPSNS  =    1.0000000000000001E-005
+ Total time               : TIMENS =    0.0000000000000000     
+ Theta                    : THETA  =    1.0000000000000000     
+ Time step                : TSTEP  =    1.0000000000000000E-002
+ Fractional step          : IFRSTP =            1
+ Stepsize for nonsteady savings: INSAV =            0
+ Number of files               : INSAVN =            0
+ Time step for Film            : DTFILM =    0.0000000000000000     
+ Time step for AVS             : DTAVS =    1.0000000000000000     
+ Time step for GMV             : DTGMV =    1.0000000000000000     
+ Level for velocity            : IFUSAV =            0
+ Level for pressure            : IFPSAV =            0
+ Level for streamlines         : IFXSAV =            0
+ Level for AVS                 : IAVS =            3
+ Level for GMV                 : IGMV =            3
+ Start file                    : IFINIT =            0
+ Type of adaptivity            : IADTIM =           -3
+ Max. Time                     : TIMEMX =    100.00000000000000     
+ Min. Timestep                 : DTMIN  =    9.9999999999999995E-007
+ Max. Timestep                 : DTMAX  =    1.0000000010000001     
+ Max. Timestep change          : DTFACT =    9.0000000010000001     
+ Time for start procedure      : TIMEIN =   0.50000000000000000     
+ EPS for start procedure       : EPSADI =   0.12500000000000000     
+ EPS for acceptance            : EPSADL =    1.2500000000000000E-003
+ EPS for not acceptance        : EPSADU =   0.50000000000000000     
+ Acceptance criterion          : IEPSAD =            1
+ Start procedure               : IADIN  =            2
+ Max.numbers of repetitions    : IREPIT =            3
+--------------------------------------------------------------------------------
+ ILEV,NVT,NMT,NEL,NVBD:            1         165         313         148          34
+ ILEV,NVT,NMT,NEL,NVBD:            2         626        1218         592          68
+ ILEV,NVT,NMT,NEL,NVBD:            3        2436        4804        2368         136
+
+ time for grid generation :    5.1780001958832145E-003
+
+ ILEV,NU,NA,NB:           1         313        2089         592
+ ILEV,NU,NA,NB:           2        1218        8322        2368
+ ILEV,NU,NA,NB:           3        4804       33220        9472
+
+
+ time for initialization of linear operators :    6.3439998775720596E-003
+
+
+--------------------------------------------------------------------------------
+ IT RELU     RELP     DEF-U    DEF-DIV  DEF-TOT  RHONL    OMEGNL   RHOMG
+--------------------------------------------------------------------------------
+  0                   0.10D+01 0.00D+00 0.10D+01
+--------------------------------------------------------------------------------
+  1 0.36D+01 0.36D+01 0.70D+00 0.70D-04 0.70D+00 0.70D+00 0.28D+00 0.57D+00
+  2 0.72D+00 0.87D+00 0.19D+00 0.36D-04 0.19D+00 0.43D+00 0.10D+01 0.34D+00
+  3 0.38D+00 0.49D+00 0.20D-01 0.14D-04 0.20D-01 0.27D+00 0.90D+00 0.39D+00
+  4 0.12D+00 0.12D+00 0.70D-02 0.15D-05 0.70D-02 0.29D+00 0.10D+01 0.46D+00
+  5 0.56D-01 0.42D-01 0.28D-02 0.37D-06 0.28D-02 0.31D+00 0.13D+01 0.54D+00
+  6 0.13D-01 0.17D-01 0.10D-02 0.27D-06 0.10D-02 0.32D+00 0.10D+01 0.52D+00
+  7 0.43D-02 0.42D-02 0.31D-03 0.12D-06 0.31D-03 0.32D+00 0.10D+01 0.56D+00
+  8 0.13D-02 0.90D-03 0.96D-04 0.15D-07 0.96D-04 0.31D+00 0.97D+00 0.45D+00
+  9 0.37D-03 0.21D-03 0.29D-04 0.12D-07 0.29D-04 0.31D+00 0.93D+00 0.46D+00
+ 10 0.18D-03 0.48D-04 0.98D-05 0.26D-08 0.98D-05 0.32D+00 0.10D+01 0.50D+00
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#   1(   1) TIME= 0.000D+00  NORM(U)= 0.3314753D+00  NORM(P)= 0.9266825D-01
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+P(VELO) -0.68277D-02 0.12064D-02 0.21170D+00 0.24015D-02
+P(PRES)  0.11328D+00-0.11592D+00-0.16560D+00-0.80804D-01
+I(PRES) -0.83261D-01-0.82924D-01
+I(FORCE) 0.10744D+02-0.29519D-01
+P(FLUX)  0.62417D-01
+
+ STATISTICS :
+ NWORK :           8000000
+ IWORKG:             35755
+ IWMAXG:             36208
+ IWORKI:            177218
+ IWMAXI:            177218
+ IWORK :            177218
+ IWMAX :            189194
+--------------------------------------------------------------------------------
+ total time :    1.1641579447314143     
+ appr. time :    1.1631833332357928     
+ grid  time :    5.1780001958832145E-003
+ post  time :    7.0355892181396484E-002
+ lin.  time :   0.19087431998923421     
+ -> mavec time :    1.6157989855855703E-002
+ -> konv. time :   0.16752813756465912     
+ -> bdry  time :    1.2498535215854645E-004
+ -> LC    time :    7.0632072165608406E-003
+ mg    time :   0.89677512086927891     
+ #substeps  :            1
+ #nonlinear :           10
+ #mg        :           39
+--------------------------------------------------------------------------------
+
+  MULTIGRID COMPONENTS [in percent]:
+  smoothing     :   65.372880821215503     
+  solver        :   20.449821883458707     
+  defect calc.  :   6.2785521820048711     
+  prolongation  :   7.0536947304977726     
+  restriction   :  0.77019107329257752     
+--------------------------------------------------------------------------------

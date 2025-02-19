@@ -1,0 +1,186 @@
+NAME
+     ReadSeqAnim - generate a files name sequence for animation
+
+NOTE:
+	ReadSeqAnim.c is version 2.0
+	read_seq.c is version 1.0
+
+
+SUMMARY
+     Name          ReadSeqAnim
+
+     Type          data 
+
+     Inputs        none
+
+     Outputs       string
+
+     Parameters    Name                Type      Defaults
+      		   ----                ----      --------
+		   File name           string     -
+
+	           Animation On/Off    boolean    On
+
+	   	   Current frame       integer    1
+
+		   Nr.frames           integer    1
+
+DESCRIPTION
+     The ReadSeqAnim input modules sends a sequence of file names to
+     a string parameter ports.
+     Its purpose is to generate a sequence of file names; the sequence
+     will be used as input for different DATA  modules.
+    
+     Before you can connect the character string to the receiving module,you
+     must make that receiving module's parameter port visible.  To make a
+     parameter port visible, call up the module's Editor Window panel by
+     pressing the middle or right mouse button on the module icon dimple.
+     Next, look under the "Parameters" list to find the parameter you want
+     to plug into.  Position the mouse cursor over that parameter's button
+     and press any mouse button.  When the Parameter's Editor Window
+     appears, click any mouse button over its "Port Visible" switch.  A
+     blue-green (teal) parameter port should appear on the module icon.
+     Connect this parameter port to the character string module icon in the
+     usual way one connects modules.
+
+PARAMETERS
+     
+     File name (string)
+	   The name of the base input file. This may be any file name
+	   which have a sequence number.
+	   Ex:   filename.xxx....xx.inp - AVS UCD files
+		 filename.xxx....xx.x   - AVS image files
+		 filename.xxx....xx.rla - Wavefront rla files
+		 filename.xxx....xx.rlb - Wavefront rlb files
+           where xxx..xx is the sequence.
+	   The number of the digits of the sequence isn't fixed, so the
+	   user can have as many digits as he/she likes.
+	
+     Animation On/Off (boolean)
+	   Specifies whether or not to animate the sequence.
+	   Defaults is Off.
+	   The user has to trigger the animation.
+     
+     Current frame(integer)
+	   Defaults is 1
+	   Allows the user to see the current frame.
+	   This parameter is updated with a new frame.
+    
+     Nr. frames(integer)
+	   Defaults is 256
+	   Specifies the numbers of the frames to be generated.
+	   Animation stops after the last frame.
+EXAMPLE 1
+     The following  networks shows examples of how the ReadSeqAnim module can 
+     be used:
+
+NOTE:
+    For the sincronization, when the ReadSeqAnim is used with WriteSeqAnim
+    the user has to use the BOOLEAN module.
+    First, make the Animation On/Off port visible for ReadSeqAnim and
+    WriteSeqAnim modules, and then connect the ports with the output
+    port of the BOOLEAN module.
+
+    To trigger the animation, the user has to use the boolean switch
+    of the BOOLEAN module.
+
+EXEMPLE 1------------------------------------------------------
+
+                                            BOOLEAN
+                                               |
+			    --------------------
+			    |                  | 
+                            |                  |
+                       ReadSeqAnim             |
+			    |                  |
+			    |                  |
+			 READ UCD              |
+			    |                  |
+GENERATE COLORMAP	    |                  |
+       |		 UCD VECMAG            |
+       |		    |                  --------
+       |              ------|------------             |
+       |--------      |            	|             |
+	        |     |			|             |
+	      UCD CONTOUR	        |             |
+		    |                   |             |
+		    |----------------|  |             |
+				     |  |             |
+				  UCD TO GEOM    WriteSeqAnim
+	            			|
+		   		        |              |
+				  GEOMETRY VIEWER      |
+				        |              |
+					|   ------------ 
+					|   |
+				  WRITE_ANY_IMAGE
+
+
+EXAMPLE 2 -------------------------------------------------------------
+                                  BOOLEAN
+                                     |
+                                     |
+			    -----------------------|
+                            |                      |
+                            |                      |
+                        ReadSeqAnim                |
+			    |                      |
+			    |                WriteSeqAnim
+			READ ANY IMAGE             |
+			    |                      |
+			    |----------------------|
+			    |                      |
+			    |                 WRITE IMAGE
+		     DISPLAY  IMAGE
+
+EXEMPLE 3 ------------------------------------------------------
+
+                         ReadSeqAnim
+			    |
+			    |
+			 READ UCD
+			    |
+GENERATE COLORMAP	    |
+       |		 UCD VECMAG
+       |		    |
+       |              ------|------------
+       |--------      |            	|
+	        |     |			|
+	      UCD CONTOUR	        |
+		    |                   |
+		    |----------------|  |
+				     |  |
+				  UCD TO GEOM
+	            			|
+		   		        |
+				  GEOMETRY VIEWER
+
+EXAMPLE 4 ----------------------------------------------------
+
+
+                        ReadSeqAnim
+			    |
+			    |
+			READ ANY IMAGE
+			    |
+			    |
+		     DISPLAY  IMAGE
+
+RELATED MODULES
+
+      Any moudule that has as input port a string.
+
+      See, also the WriteSeqAnim  module.
+
+AUTHOR:
+
+      ION   BAROSAN
+      COMPUTING  CENTER
+      EINDHOVEN UNIVERSITY OF TECHNOLOGY  EINDHOVEN, 
+      P.O. Box 513,
+      5600 MB Eindhoven,
+      THE NETHERLANDS
+
+      internet: rcion@urc.tue.nl
+      fax:      +31 (0)40 434438
+      phone:    +31 (0)40 472154

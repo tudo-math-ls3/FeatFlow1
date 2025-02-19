@@ -1,0 +1,93 @@
+#!/usr/bin/avs -network
+version 5.02 (50.62 SunOS4)
+module "read ucd.user.0" -xy 620,11 -ex $Path/avs_library/ucd_multm
+module "ucd to geom.user.1" -xy 620,83 -ex $Path/avs_library/ucd_multm
+module "geometry viewer.user.2" -xy 620,146
+module "ucd probe.user.4" -xy 467,83 -ex $Path/avs_library/ucd_multm
+port_connect "read ucd.user.0":0 "ucd probe.user.4":0
+port_connect "read ucd.user.0":0 "ucd to geom.user.1":0
+port_connect "ucd to geom.user.1":0 "geometry viewer.user.2":0
+port_connect "ucd probe.user.4":0 "geometry viewer.user.2":0
+geom_set_scene -scene "geometry viewer.user.2"
+geom_set_camera_name "Camera 1"
+geom_resize_camera -view "Camera 1" 511 511
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0 0 -12
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -polygonal_spheres 0 -view "Camera 1"
+geom_set_view_modes -stereo 0 -view "Camera 1"
+geom_set_view_modes -head_tracking 1 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+geom_set_camera_params -view "Camera 1" -front -88 -back 112
+geom_set_depth_cue_params "Camera 1" -scale 0.1
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 113,11 -wh 259,1024
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,99 -wh 258,689
+   panel "read ucd.user.0" -w panel -p "Top Level Stack" -xy 0,64 -wh 258,217
+    manipulator "read ucd.user.0:read file" -w browser -p "read ucd.user.0" \
+        -xy 10,10 -wh 236,196
+   panel "ucd to geom.user.1" -w panel -p "Top Level Stack" -xy 0,85 -wh 228,411
+    manipulator "ucd to geom.user.1:Shrink" -w toggle -p "ucd to geom.user.1" \
+        -xy 10,10 -wh 118,21
+    manipulator "ucd to geom.user.1:Shrink Factor" -w idial -p "ucd to geom.user.1" \
+        -xy 129,10 -wh 90,130
+    manipulator "ucd to geom.user.1:Geometry Display Mode" -w text -p "ucd to geom.user.1" \
+        -xy 10,139 -wh 178,21
+    manipulator "ucd to geom.user.1:mode" -w radio_buttons -p "ucd to geom.user.1" \
+        -xy 10,162 -wh 178,65
+    manipulator "ucd to geom.user.1:Explode Materials" -w toggle -p "ucd to geom.user.1" \
+        -xy 10,227 -wh 118,21
+    manipulator "ucd to geom.user.1:Explode Factor" -w idial -p "ucd to geom.user.1" \
+        -xy 129,227 -wh 90,130
+    manipulator "ucd to geom.user.1:Save Geometry" -w toggle -p "ucd to geom.user.1" \
+        -xy 10,356 -wh 118,21
+    manipulator "ucd to geom.user.1:Color Cells" -w toggle -p "ucd to geom.user.1" \
+        -xy 10,379 -wh 118,21
+   panel "ucd probe.user.4" -w panel -p "Top Level Stack" -xy 0,107 -wh 229,581
+    manipulator "ucd probe.user.4:x" -w typein_real -p "ucd probe.user.4" \
+        -xy 10,10 -wh 118,21
+    manipulator "ucd probe.user.4:y" -w typein_real -p "ucd probe.user.4" \
+        -xy 10,32 -wh 118,21
+    manipulator "ucd probe.user.4:z" -w typein_real -p "ucd probe.user.4" \
+        -xy 10,53 -wh 118,21
+    manipulator "ucd probe.user.4:Probe Type" -w text -p "ucd probe.user.4" \
+        -xy 35,78 -wh 118,21
+    manipulator "ucd probe.user.4:type" -w radio_buttons -p "ucd probe.user.4" \
+        -xy 35,101 -wh 118,65
+    manipulator "ucd probe.user.4:Pick Geometry" -w toggle -p "ucd probe.user.4" \
+        -xy 35,278 -wh 118,21
+    manipulator "ucd probe.user.4:Label Options" -w text -p "ucd probe.user.4" \
+        -xy 33,173 -wh 118,21
+    manipulator "ucd probe.user.4:label nodes" -w toggle -p "ucd probe.user.4" \
+        -xy 34,194 -wh 118,21
+    manipulator "ucd probe.user.4:label id" -w toggle -p "ucd probe.user.4" \
+        -xy 34,212 -wh 118,21
+    manipulator "ucd probe.user.4:label value" -w toggle -p "ucd probe.user.4" \
+        -xy 35,234 -wh 118,21
+    manipulator "ucd probe.user.4:label cell" -w toggle -p "ucd probe.user.4" \
+        -xy 35,252 -wh 118,21
+    manipulator "ucd probe.user.4:Text Size" -w idial -p "ucd probe.user.4" \
+        -xy 13,307 -wh 90,130
+    manipulator "ucd probe.user.4:Text Offset" -w dial -p "ucd probe.user.4" \
+        -xy 121,308 -wh 90,130
+    manipulator "ucd probe.user.4:Node Data" -w text -p "ucd probe.user.4" \
+        -xy 40,440 -wh 118,21
+    manipulator "ucd probe.user.4:node data" -w radio_buttons -p "ucd probe.user.4" \
+        -xy 38,462 -wh 118,108
+ panel "geometry viewer.user.2!display" -w container -p ui -xy 696,288 -wh 627,659\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.2":object -w none
+manipulator "geometry viewer.user.2":"Update Always" -w none
+manipulator "geometry viewer.user.2":"Update Image" -w none
+# End of file

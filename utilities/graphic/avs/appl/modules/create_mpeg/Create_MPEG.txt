@@ -1,0 +1,206 @@
+NAME
+	Create MPEG - Creates MPEG movies of AVS images.
+
+SUMMARY
+	Name	Create MPEG
+	Type	
+	Inputs	input - 	field 2D 4-vector uniform byte REQUIRED
+
+	Parameters
+	Name		Type	Default	Choices
+	Filename	browser		File Type	Filename
+	Pause		toggle
+	Forget it	oneshot
+	Make it		oneshot
+	Repeat frame	oneshot
+	size		string	Width : 000 Height : 000
+	Frame		string	Frame :	000
+
+DESCRIPTION
+
+Create MPEG is a subroutine module which will create MPEG movies from
+a series of AVS images. It uses Andy Hung's 'MPEG' which is available
+by anonymous ftp from:
+
+	havefun.stanford.edu:pub/mpeg/old/MPEGv1.2.tar.Z (the latest version
+        is MPEGv1.2.1 but this module has not been tested with it)
+
+Because of the way MPEG movies are encoded by 'MPEG', many temporary
+files need to be stored, bear this in mind when choosing which
+directory to make your movie in.
+
+To make a movie simply create an animation with the animator and then
+bring Create MPEG onto the network area and connect it to the device
+which is displaying the image (e.g. geometry viewer, image viewer) and
+connect it up via a gamma correction module (see NOTE below). Select
+the directory you want to create the movie in, select the file you
+want the movie to be saved as, turn off pause and play the sequence
+via the animator. When the sequence has finished press the 'Make it'
+button this will execute 'MPEG' and will take quite a while to
+execute. After 'MPEG' has finished all the temporary files are
+removed.
+
+Movies don't necessarily need to be made with the animator they can be
+made with animate integers. There is however a problem if using the
+image viewer's flipbook and spinning objects in the geometry
+viewer. These modules don't wait for the image they output to be
+processed before going onto the next and thus images are lost.
+
+INPUTS
+	input - field 2D 4-vector uniform byte
+		An AVS image.
+
+PARAMETERS
+
+filename	(browser)
+
+The file name of the MPEG movie to create. Whilst the movie is being
+created temporary files called 'filename'_tempxxx where xxx is a
+number followed by either Y,U or V. After the movie has been made two
+files will be left 'filename' which is the movie and
+'filename'_messages which contains the messages returned by 'MPEG'
+whilst making the movie.
+
+The filename cannot be changed whilst a movie is being made you must
+first 'Make' or 'Forget' the current movie to change the name of the
+movie file.
+
+pause		(oneshot)
+
+This determines whether new images are to be added to the movie.
+
+Forget it	(oneshot)
+
+Forgets the movie currently being made. This causes all the temporary
+files to be erased and the next image received will start a new movie.
+
+Make it		(oneshot)
+
+This causes the movie to be created and the temporary files to be
+created. It is as this stage that the message file is created. The
+time this takes to execute is dependent on the number of frames and
+the size of them.
+
+Repeat Frame	(oneshot)
+
+This adds a frame to the sequence which is the same as the last frame
+added.
+
+Width : 000 Height : 000
+
+This text window shows the width and height of the MPEG movie which
+would be produced by the input image.
+
+Frame : 000	(string)
+
+This text window shows the current frame count to give you an idea of
+how long and big your movies will be.
+
+EXAMPLE NETWORKS
+
+EXAMPLE ONE: using the animator.
+
+Stage: one : making the animation.
+
+	  read geom			AVS ANIMATOR
+	      |
+	geometry viewer
+
+	Use this network to create the animation.
+	
+
+Stage: one : making the movie of the animation.
+
+	  read geom			AVS ANIMATOR
+	      |
+	geometry viewer
+	      |
+	  Create MPEG
+
+
+EXAMPLE TWO: using animate floats.
+
+	animate float	generate colourmap	read volue
+	      \___________    |	   __________________|
+			  \   |   /		     |
+			arbitrary slicer	volume bounds
+			       |_____________________/
+			       |
+			geometry viewer
+			       |
+			  Create MPEG
+
+create_mpeg.net:
+
+To run the sample network in create_mpeg.net
+
+1. Compile and link the create_mpeg module
+
+2. Read the create_mpeg module into AVS
+
+3. Load the network file ``test.net''.  This network
+   will create a movie of an isosurface with an increasing
+   value in the file /tmp/hy-iso.mpeg
+
+4. Toggle the ``sleep'' parameter on the animated_float module
+
+5. When the sequence has finished click the ``Make it'' button
+   on the create_mpeg module to create the sequence in the file
+   /tmp/hy-iso.mpeg
+
+NOTES:
+
+AVS automatically gamma corrects images as it displays them.  The
+internal representation of them is not gamma corrected. And so before
+an image is sent to 'Create MPEG' it must be gamma corrected either
+with 'Prepare Video', otherwise movies will appear dark.
+
+MPEG movies must be the same size throughout the movie and so changing
+the size of the input image will cause that image to be ignored.
+
+It is best to create the Animation without 'Create MPEG' in the
+network editor because if you change the name of the MPEG file to
+create The animator will try and change it back. This causes a warning
+message to come up telling you not to change the filename whilst
+creating a movie. If this happens click on 'O.K.' and there will be no
+adverse effects and the filename should be restored to what it was
+originally.
+
+MPEG movies of large images will take a long time to decompress and
+display (not to mention the huge disk space required) and so a slow
+refresh rate might occur. Also MPEG requires images with an even width
+and height and so the MPEG movie might be a cropped by a pixel
+horizontally and vertically.
+
+ACKNOWLEDGEMENTS
+
+Thanks go to Andy C Hung who wrote 'mpeg' which is at the heart of
+this module.
+
+SEE ALSO
+
+	prepare_video
+        Animator
+
+AUTHOR
+
+For further information please contact:
+
+ The Computer Graphics Unit
+ Manchester Computing Centre
+ The University of Manchester
+ Manchester M13 9PL
+ United Kingdom
+
+ tel: +44 61 275 6095
+ fax: +44 61 275 6040
+
+ email: cgu-info@mcc.ac.uk
+
+/*__________________________________________________________________________
+Alex Knowles
+Manchester Computing Centre, Computer Graphics Unit	   Tel. 061 275 6095
+E-Mail	
+	alex@ed.ac.uk
+        ark@hpa.cgu.mcc.ac.uk
+--------------------------------------------------------------------------*/

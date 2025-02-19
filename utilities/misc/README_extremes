@@ -1,0 +1,24 @@
+{avs,gmv}extremes.f are simple F77-files which read 
+ couple of {avs,gmv}-files and determine the minimum 
+and maximum values for each physical quantity.
+
+These extremal values are often needed if an automatic 
+generation of frames and a corresponding mpeg-movie is 
+performed!
+
+After executing {avs,gmv}extremes (in the corresponding
+subdirectories {#avs,#gmv}, the user is asked for:
+
+ ISTART,ISTOP,IADD :
+
+Then, the user has to determine the number of the 
+first (ISTART) and last (ISTOP) file to be examined, and 
+the incremental (IADD). The result is the "local" result 
+for each file and the "total" result which contains 
+the min/max-values over all files at the end!
+
+These files support only fixed incrementals and have to 
+be appropriately modified in the time-adaptive context!!!
+
+Additionally, these files have to be adapted accordingly to 
+the number and kind of output quantities!!!

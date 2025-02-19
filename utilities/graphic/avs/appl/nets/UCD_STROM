@@ -1,0 +1,106 @@
+#!/usr/bin/avs -network
+version 5.01 (50.53 SunOS4)
+module "read ucd.user.0" -xy 559,24 -ex $Path/avs_library/ucd_multm
+module "geometry viewer.user.1" -xy 579,254
+module "generate colormap.user.2" -xy 389,34
+module "ucd streamline.user.3" -xy 489,134 -ex $Path/avs_library/ucd_multm
+module "ucd to geom.user.4" -xy 629,134 -ex $Path/avs_library/ucd_multm
+port_connect "read ucd.user.0":0 "ucd to geom.user.4":0
+port_connect "read ucd.user.0":0 "ucd streamline.user.3":0
+port_connect "generate colormap.user.2":0 "ucd streamline.user.3":1
+port_connect "ucd streamline.user.3":0 "geometry viewer.user.1":0
+port_connect "ucd to geom.user.4":0 "geometry viewer.user.1":0
+geom_set_scene -scene "geometry viewer.user.1"
+geom_set_camera_name "Camera 1"
+geom_resize_camera -view "Camera 1" 512 512
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0 0 -12
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -polygonal_spheres 0 -view "Camera 1"
+geom_set_view_modes -stereo 0 -view "Camera 1"
+geom_set_view_modes -head_tracking 1 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+geom_set_camera_params -view "Camera 1" -front -88 -back 112
+geom_set_depth_cue_params "Camera 1" -scale 0.1
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 0,0 -wh 259,1024
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,100 -wh 258,892
+   panel "read ucd.user.0" -w panel -p "Top Level Stack" -xy 0,64 -wh 258,214
+    manipulator "read ucd.user.0:read file" -w browser -p "read ucd.user.0" \
+        -xy 10,10 -wh 237,194
+   panel "generate colormap.user.2" -w panel -p "Top Level Stack" \
+       -xy 0,86 -wh 257,566
+    manipulator "generate colormap.user.2:colormap" -w color_editor -p "generate colormap.user.2" \
+        -xy 10,10 -wh 236,416
+    manipulator "generate colormap.user.2:lo value" -w dial -p "generate colormap.user.2" \
+        -xy 10,426 -wh 90,129
+    manipulator "generate colormap.user.2:hi value" -w dial -p "generate colormap.user.2" \
+        -xy 100,426 -wh 90,129
+   panel "ucd streamline.user.3" -w panel -p "Top Level Stack" \
+       -xy 0,108 -wh 229,761
+    manipulator "ucd streamline.user.3:Node Data" -w text -p "ucd streamline.user.3" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd streamline.user.3:node data" -w radio_buttons -p "ucd streamline.user.3" \
+        -xy 10,30 -wh 118,110
+    manipulator "ucd streamline.user.3:N Segment" -w idial -p "ucd streamline.user.3" \
+        -xy 139,149 -wh 90,129
+    manipulator "ucd streamline.user.3:choice" -w radio_buttons -p "ucd streamline.user.3" \
+        -xy 14,154 -wh 118,88
+    manipulator "ucd streamline.user.3:N Steps" -w idial -p "ucd streamline.user.3" \
+        -xy 139,290 -wh 90,129
+    manipulator "ucd streamline.user.3:Integration" -w text -p "ucd streamline.user.3" \
+        -xy 10,290 -wh 118,22
+    manipulator "ucd streamline.user.3:integ method" -w radio_buttons -p "ucd streamline.user.3" \
+        -xy 10,310 -wh 118,66
+    manipulator "ucd streamline.user.3:Ribbons" -w toggle -p "ucd streamline.user.3" \
+        -xy 10,439 -wh 118,22
+    manipulator "ucd streamline.user.3:Ribbon Width" -w dial -p "ucd streamline.user.3" \
+        -xy 139,469 -wh 90,129
+    manipulator "ucd streamline.user.3:Ribbon Angle" -w dial -p "ucd streamline.user.3" \
+        -xy 10,469 -wh 90,129
+    manipulator "ucd streamline.user.3:Backward" -w toggle -p "ucd streamline.user.3" \
+        -xy 130,30 -wh 118,22
+    manipulator "ucd streamline.user.3:Color Streams" -w toggle -p "ucd streamline.user.3" \
+        -xy 130,60 -wh 118,22
+    manipulator "ucd streamline.user.3:Show Bounds" -w toggle -p "ucd streamline.user.3" \
+        -xy 10,660 -wh 118,22
+    manipulator "ucd streamline.user.3:Interaction Mode" -w text -p "ucd streamline.user.3" \
+        -xy 10,630 -wh 118,22
+    manipulator "ucd streamline.user.3:inter mode" -w radio_buttons -p "ucd streamline.user.3" \
+        -xy 10,659 -wh 118,66
+    manipulator "ucd streamline.user.3:Start Streams" -w toggle -p "ucd streamline.user.3" \
+        -xy 10,729 -wh 118,22
+   panel "ucd to geom.user.4" -w panel -p "Top Level Stack" -xy 0,130 -wh 229,411
+    manipulator "ucd to geom.user.4:Shrink" -w toggle -p "ucd to geom.user.4" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd to geom.user.4:Shrink Factor" -w idial -p "ucd to geom.user.4" \
+        -xy 129,10 -wh 90,129
+    manipulator "ucd to geom.user.4:Geometry Display Mode" -w text -p "ucd to geom.user.4" \
+        -xy 10,139 -wh 178,22
+    manipulator "ucd to geom.user.4:mode" -w radio_buttons -p "ucd to geom.user.4" \
+        -xy 10,161 -wh 178,66
+    manipulator "ucd to geom.user.4:Explode Materials" -w toggle -p "ucd to geom.user.4" \
+        -xy 10,227 -wh 118,22
+    manipulator "ucd to geom.user.4:Explode Factor" -w idial -p "ucd to geom.user.4" \
+        -xy 129,227 -wh 90,129
+    manipulator "ucd to geom.user.4:Save Geometry" -w toggle -p "ucd to geom.user.4" \
+        -xy 10,357 -wh 118,22
+    manipulator "ucd to geom.user.4:Color Cells" -w toggle -p "ucd to geom.user.4" \
+        -xy 10,379 -wh 118,22
+ panel "geometry viewer.user.1!display" -w container -p ui -xy 0,0 -wh 566,586\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.1":object -w none
+manipulator "geometry viewer.user.1":"Update Always" -w none
+manipulator "geometry viewer.user.1":"Update Image" -w none
+# End of file

@@ -1,0 +1,37 @@
+======================================================================
+File for input data for trigen2d
+======================================================================
+2                     M
+1                     MT
+1                     ICHECK
+1                     IMESH  (0=FEAT-parametrization,1=OMEGA)
+'#pre/c2d.prm'        CPARM  (name of parametrization file)
+7                     IBDCHK (>0 check with #points=IBDCHK)
+4                     IGMV   (level for GMV-output)
+3                     IAVS   (level for AVS-output)
+4                     NLEV   (number of refined levels-1)
+-0                    IFMT   (level of output,<0=unformat.,>0=format.)
+'#adc/c2d1.tri'       CFILEI (name of input  file)
+'#adc/c2d2.tri'       CFILEO (name of output file)
+3                     ITYPEL (0=no,>0=type of modification)
+18                    NELMOD (number of modifoed elements)
+0.25D0                DELMA  (distance od first line)
+0.50D0                DELMB  (distance od second line)
+43
+44
+45
+49
+50
+51
+57
+58
+59
+65
+66
+67
+73
+79
+80
+81
+87
+88

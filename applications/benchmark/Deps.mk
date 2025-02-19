@@ -1,0 +1,24 @@
+$(OBJDIR)/avs2d.o: avs2d.f
+$(OBJDIR)/coeff.o: coeff.f
+$(OBJDIR)/gupwd.o: gupwd.f
+$(OBJDIR)/mgrout.o: mgrout.f
+$(OBJDIR)/util.o: util.f
+$(OBJDIR)/bmul.o: bmul.f
+$(OBJDIR)/dfkt.o: dfkt.f
+$(OBJDIR)/indat2d.o: indat2d.f
+$(OBJDIR)/mgstp.o: mgstp.f
+$(OBJDIR)/parq2d.o: parq2d.f
+$(OBJDIR)/vanca.o: vanca.f
+$(OBJDIR)/bndry.o: bndry.f
+$(OBJDIR)/error.o: error.f
+$(OBJDIR)/init1.o: init1.f
+$(OBJDIR)/nsdef.o: nsdef.f
+$(OBJDIR)/rdparm.o: rdparm.f
+$(OBJDIR)/xmrout.o: xmrout.f
+$(OBJDIR)/cc2d.o: cc2d.f cc2d.inc
+$(OBJDIR)/fpost.o: fpost.f
+$(OBJDIR)/matmul.o: matmul.f
+$(OBJDIR)/optcnl.o: optcnl.f
+$(OBJDIR)/supwdg.o: supwdg.f
+$(OBJDIR)/zvalue1.o: zvalue1.f
+$(OBJDIR)/sveb.o: sveb.f

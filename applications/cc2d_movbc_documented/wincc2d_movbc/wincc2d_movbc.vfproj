@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="8.00" ProjectIdGuid="{766450C9-5F0F-4692-AEA5-D8D1A18A24E3}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" CommandArguments="#data\cc2d.dat" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="$(ProjectDir)/../geometry;$(ProjectDir)/../gridadapt;$(ProjectDir)/../triangulation;$(ProjectDir)/../solvers;$(ProjectDir)/../include" WarnDeclarations="true" WarnUnusedVariables="true" WarnIgnoreLOC="true" WarnTruncateSource="true" CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" Traceback="true" ArgTempCreatedCheck="true" RuntimeLibrary="rtSingleThreadedDebug" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/wincc2d_movbc.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" ProgramDatabaseFile="$(OUTDIR)/wincc2d_movbc.pdb" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration>
+		<Configuration Name="Release|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="$(ProjectDir)/../geometry;$(ProjectDir)/../gridadapt;$(ProjectDir)/../triangulation;$(ProjectDir)/../solvers;$(ProjectDir)/../include" CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/wincc2d_movbc.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="$(ProjectDir)\.." SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<Filter Name="cc2dcore">
+		<File RelativePath="..\src\cc2d.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\dfkt.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\mgstp.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\nonstead.f"/>
+		<File RelativePath="..\src\nscalc.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\nsdef.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\optcnl.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\vanca.f"/>
+		<File RelativePath="..\src\zvalue1.f"/></Filter>
+		<Filter Name="discret">
+		<File RelativePath="..\src\discret\bmul.f"/>
+		<File RelativePath="..\src\discret\bndry.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\discret\coeff.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\discret\em30.f"/>
+		<File RelativePath="..\src\discret\em31.f"/>
+		<File RelativePath="..\src\discret\exxx.f"/>
+		<File RelativePath="..\src\discret\gupwd.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\discret\ltrafo.f"/>
+		<File RelativePath="..\src\discret\matrest.f"/>
+		<File RelativePath="..\src\discret\parq2domega.f"/>
+		<File RelativePath="..\src\discret\parq2dwrap.f"/>
+		<File RelativePath="..\src\discret\qtrafo.f"/>
+		<File RelativePath="..\src\discret\supwdg.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\discret\ttrafo.f"/>
+		<File RelativePath="..\src\discret\xmrout.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File></Filter>
+		<Filter Name="init">
+		<File RelativePath="..\src\init\alcgen.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\init\datutil.f"/>
+		<File RelativePath="..\src\init\done.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\init\init1.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\init\rdini.f"/>
+		<File RelativePath="..\src\init\rdparm.f"/></Filter>
+		<Filter Name="misc">
+		<File RelativePath="..\src\misc\arcalc.f"/>
+		<File RelativePath="..\src\misc\bdrchk.f"/>
+		<File RelativePath="..\src\misc\invert.f"/>
+		<File RelativePath="..\src\misc\matmul.f"/>
+		<File RelativePath="..\src\misc\util.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File></Filter>
+		<Filter Name="multigrid">
+		<File RelativePath="..\src\multigrid\m011.f"/>
+		<File RelativePath="..\src\multigrid\mgrout.f"/>
+		<File RelativePath="..\src\multigrid\mgrout10.f"/>
+		<File RelativePath="..\src\multigrid\mgrout30.f"/>
+		<File RelativePath="..\src\multigrid\mgrout31.f"/></Filter>
+		<Filter Name="postproc">
+		<File RelativePath="..\src\postproc\avs2d.f"/>
+		<File RelativePath="..\src\postproc\bdintegral.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\postproc\draglift.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\postproc\draglift2.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\postproc\error.f"/>
+		<File RelativePath="..\src\postproc\fpost.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\src\postproc\gmv2d.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File></Filter>
+		<Filter Name="User-defined">
+		<File RelativePath="..\fictbdry.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\indat2d.f">
+			<FileConfiguration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool"/></FileConfiguration></File>
+		<File RelativePath="..\parq2d.f"/></Filter>
+		<Filter Name="utilities"/></Filter>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\include\arnbmat.inc"/>
+		<File RelativePath="..\include\arnmassmat.inc"/>
+		<File RelativePath="..\include\arnstokes.inc"/>
+		<File RelativePath="..\include\casmbly.inc"/>
+		<File RelativePath="..\include\cbasicelem.inc"/>
+		<File RelativePath="..\include\cbasicmg.inc"/>
+		<File RelativePath="..\include\cbasictria.inc"/>
+		<File RelativePath="..\include\ccub.inc"/>
+		<File RelativePath="..\include\celem.inc"/>
+		<File RelativePath="..\include\cerr.inc"/>
+		<File RelativePath="..\include\cfiles.inc"/>
+		<File RelativePath="..\include\cinidat.inc"/>
+		<File RelativePath="..\include\cinidat2.inc"/>
+		<File RelativePath="..\include\cinigeometry.inc"/>
+		<File RelativePath="..\include\cmacro.inc"/>
+		<File RelativePath="..\include\cmem.inc"/>
+		<File RelativePath="..\include\cmem2.inc"/>
+		<File RelativePath="..\include\cmg.inc"/>
+		<File RelativePath="..\include\cmgadr.inc"/>
+		<File RelativePath="..\include\cmgfld.inc"/>
+		<File RelativePath="..\include\cmgpar.inc"/>
+		<File RelativePath="..\include\cmgtria.inc"/>
+		<File RelativePath="..\include\cns.inc"/>
+		<File RelativePath="..\include\cnsparfrac.inc"/>
+		<File RelativePath="..\include\cnspts.inc"/>
+		<File RelativePath="..\include\cout.inc"/>
+		<File RelativePath="..\include\cparqdata.inc"/>
+		<File RelativePath="..\include\ctria.inc"/>
+		<File RelativePath="..\include\cyconfig.inc"/>
+		<File RelativePath="..\include\dstrings.inc"/>
+		<File RelativePath="..\include\fnmassmat.inc"/>
+		<File RelativePath="..\include\fnstokes.inc"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath="..\#data\cc2d.dat"/></Filter></Files>
+	<Globals/></VisualStudioProject>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="8.00" ProjectIdGuid="{1EBFD5D0-AF9E-412A-A2C2-BE446D73DA49}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="$(ProjectDir)\..\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" Traceback="true" RuntimeLibrary="rtSingleThreadedDebug" CompileOnly="true"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/winbenchpp2d.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" ProgramDatabaseFile="$(OUTDIR)/winbenchpp2d.pdb" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/>
+				<Tool Name="VFPreLinkEventTool"/></Configuration>
+		<Configuration Name="Release|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" MustRebuild="true" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..\..">
+				<Tool Name="VFMidlTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" AdditionalIncludeDirectories="$(ProjectDir)\..\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" CompileOnly="true"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" SwitchesHaveChanged="true" MustRebuild="true" OutputFile="$(OUTDIR)/winbenchpp2d.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/>
+				<Tool Name="VFPreLinkEventTool"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\..\indat2d.f"/>
+		<File RelativePath="..\..\parq2d.f"/>
+		<Filter Name="src">
+		<File RelativePath="..\..\..\pp2d\src\avs2d.f"/>
+		<File RelativePath="..\..\..\pp2d\src\bmul.f"/>
+		<File RelativePath="..\..\..\pp2d\src\bndry.f"/>
+		<File RelativePath="..\..\..\pp2d\src\coeff.f"/>
+		<File RelativePath="..\..\..\pp2d\src\dfkt.f"/>
+		<File RelativePath="..\..\..\pp2d\src\error.f"/>
+		<File RelativePath="..\..\..\pp2d\src\fpost.f"/>
+		<File RelativePath="..\..\..\pp2d\src\gupwd.f"/>
+		<File RelativePath="..\..\..\pp2d\src\init1.f"/>
+		<File RelativePath="..\..\..\pp2d\src\mgrout.f"/>
+		<File RelativePath="..\..\..\pp2d\src\nsdef.f"/>
+		<File RelativePath="..\..\..\pp2d\src\optcnl.f"/>
+		<File RelativePath="..\..\..\pp2d\src\pp2d.f"/>
+		<File RelativePath="..\..\..\pp2d\src\projma.f"/>
+		<File RelativePath="..\..\..\pp2d\src\prostp.f"/>
+		<File RelativePath="..\..\..\pp2d\src\rdparm.f"/>
+		<File RelativePath="..\..\..\pp2d\src\supwdg.f"/>
+		<File RelativePath="..\..\..\pp2d\src\trsort.f"/>
+		<File RelativePath="..\..\..\pp2d\src\util.f"/>
+		<File RelativePath="..\..\..\pp2d\src\xmrout.f"/>
+		<File RelativePath="..\..\..\pp2d\src\zvalue1.f"/></Filter></Filter>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\..\pp2d.inc"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath="..\..\#data\pp2d.dat"/>
+		<File RelativePath="..\..\#data\pp2d.dat_sdg"/>
+		<File RelativePath="..\..\#data\pp2d.dat_upw"/></Filter></Files>
+	<Globals/></VisualStudioProject>

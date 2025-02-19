@@ -1,0 +1,81 @@
+NAME	ucd minmax
+
+SYNOPSIS: UCD filter to override data min/max range and mesh_id
+
+Author: Ian Curington, AVS Inc, Staines, UK  < ianc@avs.com >
+
+Type	Filter
+
+Input	UCD
+
+Output	UCD
+
+Parameters:
+	Name		Type		Defaults, Range
+
+	min		float		0.0, unbounded
+	max		float		1.0, unbounded
+        Freeze Mesh     boolean         on/(off)
+
+Source: ucd_minmax.c
+
+
+DESCRIPTION:
+  
+   For Transient UCD data, where data ranges are changing,
+   and/or the mesh is static,
+   this module copies UCD input to UCD output, with
+   almost everything unchanged, except for the data
+   minimum and maximum header values, and the mesh_id.
+   This is picked up by ucd_contour or ucd_legend,
+   to colour the data, using user-specified values for
+   min and max, as set on the parameter dials.
+   This is important for animation,
+   as the colour range must remain constant over time
+   varying data. This module will work with either
+   Node or Cell based data. Make sure the range is outside
+   the actual data values.
+  
+NOTES:
+
+This module is intended as a source example for other UCD module
+developers.
+
+Special Feature: The "Freeze Mesh" button makes the assumption
+   that the mesh topology and positions have not changed since
+   the last UCD. This allows modules like ucd_to_geom to cache
+   information and run up to 10 times faster.
+   This will be most useful for Transient UCD data where each
+   time step is stored in a separate file, accessed with 
+   read_ucd.
+
+Restrictions: This relies on AVS version 4.0 or later,
+              as READ UCD had cell data bugs in version 3.0.
+              Also, several function calls will be missing on
+              version 3.0.
+
+Problem areas:
+   Make sure the range is OUTSIDE the actual data values, or
+   ucd_contour or ucd_legend may die, or create black artifacts
+   in the image.
+   This module copies ALL the ucd data across, doubling storage.
+
+Example Network: ( see ucd_minmax.net )
+
+    Generate Colormap    READ_UCD 
+               |           |
+               |         UCD_MinMax
+               |   |-------|
+           UCD Legend      |
+               |           |
+               ----        |
+                  |        |
+                 UCD TO GEOM 
+                      |
+                      |
+              RENDER GEOMETRY
+                     |
+              DISPLAY PIXMAP
+
+  
+  

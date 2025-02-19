@@ -1,0 +1,358 @@
+#!/usr/bin/avs -network
+version 5.3 (50.70 SunOS5)
+module "read ucd.user.0" -xy 398,82 -ex $Path/avs_library/ucd_multm
+port_vis "read ucd.user.0":"read file" -on
+module "ucd to geom.user.1" -xy 168,352 -ex $Path/avs_library/ucd_multm
+module "generate colormap.user.2" -xy 198,132
+module "geometry viewer.user.3" -xy 398,422
+module "ucd isolines.user.4" -xy 398,352 -ex $Path/avs_library/ucd_multm
+module "ucd legend.user.5" -xy 38,222 -ex $Path/avs_library/ucd_legend
+module "Create MPEG.user.6" -xy 398,482 -ex $NetworkDirectory/../modules/create_mpeg/create_mpeg
+module ReadAnimMax.user.7 -xy 398,22 -ex $NetworkDirectory/../modules/ReadAnimMax/ReadAnim
+module "UCD extract c.user.8" -xy 398,132 -ex $NetworkDirectory/../modules/ucd_extract/ucd_extract
+module "UCD minmax c.user.9" -xy 398,192 -ex $NetworkDirectory/../modules/ucd_minmax/ucd_minmax
+module "ucd vecmag.user.10" -xy 501,161 -ex $Path/avs_library/ucd_multm
+port_connect "read ucd.user.0":0 "UCD extract c.user.8":0
+port_connect "read ucd.user.0":0 "ucd to geom.user.1":0
+port_connect "ucd to geom.user.1":0 "geometry viewer.user.3":0
+port_connect "generate colormap.user.2":0 "ucd legend.user.5":1
+port_connect "generate colormap.user.2":0 "ucd isolines.user.4":1
+port_connect "geometry viewer.user.3":0 "Create MPEG.user.6":0
+port_connect "ucd isolines.user.4":0 "geometry viewer.user.3":0
+port_connect "ucd legend.user.5":0 "ucd to geom.user.1":1
+port_connect ReadAnimMax.user.7:0 "read ucd.user.0":0
+port_connect "UCD extract c.user.8":0 "ucd vecmag.user.10":0
+port_connect "UCD minmax c.user.9":0 "ucd legend.user.5":0
+port_connect "UCD minmax c.user.9":0 "ucd isolines.user.4":0
+port_connect "ucd vecmag.user.10":0 "UCD minmax c.user.9":0
+parm_set "ucd to geom.user.1":mode "External Edges"
+geom_set_scene -scene "geometry viewer.user.3"
+geom_set_camera_name "Camera 1"
+geom_resize_camera -view "Camera 1" 430 429
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0 0 -12
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -polygonal_spheres 0 -view "Camera 1"
+geom_set_view_modes -stereo 0 -view "Camera 1"
+geom_set_view_modes -head_tracking 1 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+geom_set_camera_params -view "Camera 1" -front -88 -back 112
+geom_set_depth_cue_params "Camera 1" -scale 0.1
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+geom_set_matrix   -mat \
+                  0.595238    0    0    0 \
+                    0    0.595238    0    0 \
+                    0    0    0.595238    0 \
+                    -4.16667    -0.892857    0    1 
+geom_set_position   0 -9.53674e-07 0
+geom_set_obj_window -1.4 15.4 -0.3 3.3 0 0
+#
+# State for object: "ucd isoline"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd isolines.user.4"
+geom_create_obj "ucd isoline" -mod "ucd isolines.user.4"
+geom_set_trans_mode parent
+geom_set_name_context
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.2"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.2" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd isoline.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd isoline.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+geom_set_cycle 1
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd to geom.user.1"
+geom_create_obj "ucd geom" -mod "ucd to geom.user.1"
+geom_set_trans_mode parent
+geom_set_obj_window -1.4 15.4 -0.3 3.3 0 0
+geom_set_name_context
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.12"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.12" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+geom_set_cycle 1
+geom_set_cur_cli_obj -pop
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 0,0 -wh 259,1024
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,100 -wh 256,809
+   panel "read ucd.user.0" -w panel -p "Top Level Stack" -xy 0,243 -wh 256,213
+    manipulator "read ucd.user.0:read file" -w browser -p "read ucd.user.0" \
+        -xy 9,9 -wh 233,199
+   panel "ucd to geom.user.1" -w panel -p "Top Level Stack" -xy 0,243 -wh 227,410
+    manipulator "ucd to geom.user.1:Shrink" -w toggle -p "ucd to geom.user.1" -hide \
+        -xy 9,9 -wh 118,22
+    manipulator "ucd to geom.user.1:Shrink Factor" -w idial -p "ucd to geom.user.1" \
+        -xy 128,9 -wh 90,129\
+   -P title string "Edge Angle"
+    manipulator "ucd to geom.user.1:Geometry Display Mode" -w text -p "ucd to geom.user.1" \
+        -xy 9,140 -wh 177,22
+    manipulator "ucd to geom.user.1:mode" -w radio_buttons -p "ucd to geom.user.1" \
+        -xy 9,160 -wh 177,67
+    manipulator "ucd to geom.user.1:Explode Materials" -w toggle -p "ucd to geom.user.1" \
+        -xy 9,226 -wh 118,22
+    manipulator "ucd to geom.user.1:Explode Factor" -w idial -p "ucd to geom.user.1" \
+        -xy 128,226 -wh 90,129
+    manipulator "ucd to geom.user.1:Save Geometry" -w toggle -p "ucd to geom.user.1" \
+        -xy 9,357 -wh 118,22
+    manipulator "ucd to geom.user.1:Color Cells" -w toggle -p "ucd to geom.user.1" -hide \
+        -xy 9,377 -wh 118,22
+   panel "generate colormap.user.2" -w panel -p "Top Level Stack" \
+       -xy 0,63 -wh 256,566
+    manipulator "generate colormap.user.2:colormap" -w color_editor -p "generate colormap.user.2" \
+        -xy 9,9 -wh 235,422
+    manipulator "generate colormap.user.2:lo value" -w dial -p "generate colormap.user.2" \
+        -xy 9,423 -wh 90,129
+    manipulator "generate colormap.user.2:hi value" -w dial -p "generate colormap.user.2" \
+        -xy 99,423 -wh 90,129
+   panel "ucd isolines.user.4" -w panel -p "Top Level Stack" \
+       -xy 0,63 -wh 227,298
+    manipulator "ucd isolines.user.4:Node Data" -w text -p "ucd isolines.user.4" \
+        -xy 9,9 -wh 118,22
+    manipulator "ucd isolines.user.4:node data" -w radio_buttons -p "ucd isolines.user.4" \
+        -xy 9,29 -wh 118,112
+    manipulator "ucd isolines.user.4:Isoline Number" -w idial -p "ucd isolines.user.4" \
+        -xy 128,29 -wh 90,129
+    manipulator "ucd isolines.user.4:Low Level" -w dial -p "ucd isolines.user.4" \
+        -xy 9,160 -wh 90,129
+    manipulator "ucd isolines.user.4:High Level" -w dial -p "ucd isolines.user.4" \
+        -xy 99,160 -wh 90,129
+   panel "ucd legend.user.5" -w panel -p "Top Level Stack" -xy 0,63 -wh 227,324
+    manipulator "ucd legend.user.5:Node Data" -w text -p "ucd legend.user.5" \
+        -xy 9,9 -wh 118,22
+    manipulator "ucd legend.user.5:node data" -w radio_buttons -p "ucd legend.user.5" \
+        -xy 9,29 -wh 118,112
+    manipulator "ucd legend.user.5:value" -w dial -p "ucd legend.user.5" -hide \
+        -xy 128,29 -wh 90,129
+    manipulator "ucd legend.user.5:lo value" -w dial -p "ucd legend.user.5" -hide \
+        -xy 9,160 -wh 90,129
+    manipulator "ucd legend.user.5:hi value" -w dial -p "ucd legend.user.5" -hide \
+        -xy 99,160 -wh 90,129
+    manipulator "ucd legend.user.5:range" -w toggle -p "ucd legend.user.5" \
+        -xy 9,292 -wh 118,22
+   panel "Create MPEG.user.6" -w panel -p "Top Level Stack" -xy 0,63 -wh 256,480
+    manipulator "Create MPEG.user.6:filename" -w browser -p "Create MPEG.user.6" \
+        -xy 9,9 -wh 237,305
+    manipulator "Create MPEG.user.6:Pause" -w toggle -p "Create MPEG.user.6" \
+        -xy 9,336 -wh 118,22
+    manipulator "Create MPEG.user.6:Forget it" -w oneshot -p "Create MPEG.user.6" \
+        -xy 9,357 -wh 118,22
+    manipulator "Create MPEG.user.6:Make it" -w oneshot -p "Create MPEG.user.6" \
+        -xy 9,381 -wh 118,22
+    manipulator "Create MPEG.user.6:Repeat" -w oneshot -p "Create MPEG.user.6" \
+        -xy 9,403 -wh 118,22
+    manipulator "Create MPEG.user.6:Size" -w text -p "Create MPEG.user.6" \
+        -xy 9,423 -wh 237,22
+    manipulator "Create MPEG.user.6:Frame" -w text -p "Create MPEG.user.6" \
+        -xy 9,448 -wh 237,22
+   panel ReadAnimMax.user.7 -w panel -p "Top Level Stack" -xy 0,63 -wh 256,500
+    manipulator "ReadAnimMax.user.7:File name" -w browser -p ReadAnimMax.user.7 \
+        -xy 9,9 -wh 237,199
+    manipulator "ReadAnimMax.user.7:Animation On/Off" -w toggle -p ReadAnimMax.user.7 \
+        -xy 9,206 -wh 118,22
+    manipulator "ReadAnimMax.user.7:Single Step On/Off" -w toggle -p ReadAnimMax.user.7 \
+        -xy 9,231 -wh 118,22
+    manipulator "ReadAnimMax.user.7:Nr. files" -w idial -p ReadAnimMax.user.7 \
+        -xy 128,231 -wh 90,129
+    manipulator "ReadAnimMax.user.7:Current file" -w idial -p ReadAnimMax.user.7 \
+        -xy 9,357 -wh 90,129
+   panel "UCD extract c.user.8" -w panel -p "Top Level Stack" \
+       -xy 0,63 -wh 137,107
+    manipulator "UCD extract c.user.8:Node Data" -w text -p "UCD extract c.user.8" \
+        -xy 9,9 -wh 118,22
+    manipulator "UCD extract c.user.8:node data" -w radio_buttons -p "UCD extract c.user.8" \
+        -xy 9,29 -wh 118,112
+   panel "UCD minmax c.user.9" -w panel -p "Top Level Stack" \
+       -xy 0,243 -wh 199,193
+    manipulator "UCD minmax c.user.9:Min" -w dial -p "UCD minmax c.user.9" \
+        -xy 9,9 -wh 90,129
+    manipulator "UCD minmax c.user.9:Max" -w dial -p "UCD minmax c.user.9" \
+        -xy 99,9 -wh 90,129
+    manipulator "UCD minmax c.user.9:Freeze Mesh" -w toggle -p "UCD minmax c.user.9" \
+        -xy 9,139 -wh 118,22
+    manipulator "UCD minmax c.user.9:Disable" -w toggle -p "UCD minmax c.user.9" \
+        -xy 9,160 -wh 118,22
+ panel "geometry viewer.user.3!display" -w container -p ui -xy 1052,29 -wh 552,580\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.3":object -w none
+manipulator "geometry viewer.user.3":"Update Always" -w none
+manipulator "geometry viewer.user.3":"Update Image" -w none
+# End of file

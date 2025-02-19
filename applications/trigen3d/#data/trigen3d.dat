@@ -1,0 +1,12 @@
+======================================================================
+File for input data for trigen3d
+======================================================================
+2                     M
+1                     MT
+1                     ICHECK
+3                     IGMV   (level for GMV-output)
+2                     IAVS   (level for AVS-output)
+3                     NLEV   (number of refined levels-1)
+-0                    IFMT   (level of output,<0=unformat.,>0=format.)
+'#adc/c3d0.tri'       CFILEI (name of input  file)
+'#adc/c3dh.tri'       CFILEO (name of output file)

@@ -1,0 +1,29 @@
+# FeatFlow 1.3
+
+This repository contains the legacy version of FeatFlow 1.
+
+## System Requirements
+
+The code has been confirmed to compile and run with:
+- GFortran 11.4
+
+## Build Configuration
+
+### Platform
+The only confirmed working build configuration in the Makefile is:
+- `pc64-x86-linux`
+
+### Compiler Flags
+The following compiler flags are necessary for successful compilation and execution:
+```
+-fallow-argument-mismath
+-ffpe-trap=invalid,zero,overflow
+```
+
+### Optimization
+Optimization must be disabled:
+```
+-O0
+```
+
+Please note that compatibility with other compiler versions, platforms, or build configurations has not been verified at this time.

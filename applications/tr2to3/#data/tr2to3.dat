@@ -1,0 +1,18 @@
+======================================================================
+File for input data for tr2to3
+======================================================================
+2                     M
+1                     MT
+1                     ICHECK
+1                     IMESH  (0=FEAT-parametrization,1=OMEGA)
+'#pre/c2d.prm'        CPARM  (name of parametrization file)
+1                     IGMV   (level for GMV-output)
+1                     IAVS   (level for AVS-output)
+'#pre/c2d.tri'        CFILEI (name of input  file)
+'#adc/c3d0.tri'       CFILEO (name of output file)
+4                     NPZ    (number of z-levels)
+0.0D0                 PZMIN
+0.41D0                PZMAX
+0.1025D0
+0.205D0
+0.3075D0

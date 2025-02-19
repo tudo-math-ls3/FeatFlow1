@@ -1,0 +1,162 @@
+#!/usr/bin/avs -network
+version 5.3 (50.70 sg2)
+module "read ucd.user.0" -xy 418,92 -ex $Path/avs_library/ucd_multm
+port_vis "read ucd.user.0":"read file" -on
+module "ucd legend.user.1" -xy 208,272 -ex $Path/avs_library/ucd_legend
+module "generate colormap.user.2" -xy 98,112
+module "ucd to geom.user.3" -xy 428,362 -ex $Path/avs_library/ucd_multm
+module "geometry viewer.user.4" -xy 428,422
+module ReadAnimMax.user.5 -xy 418,42 -ex $NetworkDirectory/../modules/ReadAnimMax/ReadAnim
+module "UCD extract c.user.6" -xy 418,152 -ex $NetworkDirectory/../modules/ucd_extract/ucd_extract
+module "Create MPEG.user.7" -xy 428,482 -ex $NetworkDirectory/../modules/create_mpeg/create_mpeg
+module "UCD minmax c.user.8" -xy 418,212 -ex $NetworkDirectory/../modules/ucd_minmax/ucd_minmax
+port_connect "read ucd.user.0":0 "UCD extract c.user.6":0
+port_connect "ucd legend.user.1":0 "ucd to geom.user.3":1
+port_connect "generate colormap.user.2":0 "ucd legend.user.1":1
+port_connect "ucd to geom.user.3":0 "geometry viewer.user.4":0
+port_connect "geometry viewer.user.4":0 "Create MPEG.user.7":0
+port_connect ReadAnimMax.user.5:0 "read ucd.user.0":0
+port_connect "UCD extract c.user.6":0 "UCD minmax c.user.8":0
+port_connect "UCD minmax c.user.8":0 "ucd legend.user.1":0
+port_connect "UCD minmax c.user.8":0 "ucd to geom.user.3":0
+parm_set "ucd to geom.user.3":mode "All Faces"
+geom_set_scene -scene "geometry viewer.user.4"
+geom_set_camera_name "Camera 1"
+geom_resize_camera -view "Camera 1" 512 512
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0 0 -12
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -polygonal_spheres 0 -view "Camera 1"
+geom_set_view_modes -stereo 0 -view "Camera 1"
+geom_set_view_modes -head_tracking 1 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+geom_set_camera_params -view "Camera 1" -front -88 -back 112
+geom_set_depth_cue_params "Camera 1" -scale 0.1
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+geom_set_matrix   -mat \
+                  8.33333    0    0    0 \
+                    0    8.33333    0    0 \
+                    0    0    8.33333    0 \
+                    -4.16667    -4.16667    0    1 
+geom_set_position   -2.38419e-07 -2.38419e-07 0
+geom_set_obj_window -0.1 1.1 -0.1 1.1 0 0
+#
+# State for object: "ucd geom"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd to geom.user.3"
+geom_create_obj "ucd geom" -mod "ucd to geom.user.3"
+geom_set_trans_mode parent
+geom_set_obj_window -0.1 1.1 -0.1 1.1 0 0
+geom_set_name_context
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_visibility 0
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+#
+# State for object: "ucd geom.0"
+#
+geom_set_cur_cli_obj -push
+geom_create_obj "ucd geom.0" -unique
+geom_set_select_mode parent
+geom_set_cur_cli_obj -pop
+geom_set_cycle 1
+geom_set_cur_cli_obj -pop
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 0,0 -wh 260,984
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,100 -wh 256,784
+   panel "read ucd.user.0" -w panel -p "Top Level Stack" -xy 0,218 -wh 256,214
+    manipulator "read ucd.user.0:read file" -w browser -p "read ucd.user.0" \
+        -xy 10,10 -wh 236,194
+   panel "ucd legend.user.1" -w panel -p "Top Level Stack" -xy 0,218 -wh 228,324
+    manipulator "ucd legend.user.1:Node Data" -w text -p "ucd legend.user.1" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd legend.user.1:node data" -w radio_buttons -p "ucd legend.user.1" \
+        -xy 10,32 -wh 118,22
+    manipulator "ucd legend.user.1:value" -w dial -p "ucd legend.user.1" -hide \
+        -xy 128,32 -wh 90,130
+    manipulator "ucd legend.user.1:lo value" -w dial -p "ucd legend.user.1" \
+        -xy 10,162 -wh 90,130
+    manipulator "ucd legend.user.1:hi value" -w dial -p "ucd legend.user.1" \
+        -xy 100,162 -wh 90,130
+    manipulator "ucd legend.user.1:range" -w toggle -p "ucd legend.user.1" \
+        -xy 10,292 -wh 118,22
+   panel "generate colormap.user.2" -w panel -p "Top Level Stack" \
+       -xy 0,218 -wh 256,566
+    manipulator "generate colormap.user.2:colormap" -w color_editor -p "generate colormap.user.2" \
+        -xy 10,10 -wh 236,416
+    manipulator "generate colormap.user.2:lo value" -w dial -p "generate colormap.user.2" \
+        -xy 10,426 -wh 90,130
+    manipulator "generate colormap.user.2:hi value" -w dial -p "generate colormap.user.2" \
+        -xy 100,426 -wh 90,130
+   panel "ucd to geom.user.3" -w panel -p "Top Level Stack" -xy 0,218 -wh 228,412
+    manipulator "ucd to geom.user.3:Shrink" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd to geom.user.3:Shrink Factor" -w idial -p "ucd to geom.user.3" \
+        -xy 128,10 -wh 90,130\
+   -P title string "Shrink Factor"
+    manipulator "ucd to geom.user.3:Geometry Display Mode" -w text -p "ucd to geom.user.3" \
+        -xy 10,140 -wh 177,22
+    manipulator "ucd to geom.user.3:mode" -w radio_buttons -p "ucd to geom.user.3" \
+        -xy 10,162 -wh 177,66
+    manipulator "ucd to geom.user.3:Explode Materials" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,228 -wh 118,22
+    manipulator "ucd to geom.user.3:Explode Factor" -w idial -p "ucd to geom.user.3" \
+        -xy 128,228 -wh 90,130
+    manipulator "ucd to geom.user.3:Save Geometry" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,358 -wh 118,22
+    manipulator "ucd to geom.user.3:Color Cells" -w toggle -p "ucd to geom.user.3" -hide \
+        -xy 10,380 -wh 118,22
+   panel ReadAnimMax.user.5 -w panel -p "Top Level Stack" -xy 0,218 -wh 256,496
+    manipulator "ReadAnimMax.user.5:File name" -w browser -p ReadAnimMax.user.5 \
+        -xy 10,10 -wh 236,194
+    manipulator "ReadAnimMax.user.5:Animation On/Off" -w toggle -p ReadAnimMax.user.5 \
+        -xy 10,204 -wh 118,22
+    manipulator "ReadAnimMax.user.5:Single Step On/Off" -w toggle -p ReadAnimMax.user.5 \
+        -xy 10,226 -wh 118,22
+    manipulator "ReadAnimMax.user.5:Nr. files" -w idial -p ReadAnimMax.user.5 \
+        -xy 128,226 -wh 90,130
+    manipulator "ReadAnimMax.user.5:Current file" -w idial -p ReadAnimMax.user.5 \
+        -xy 10,356 -wh 90,130
+   panel "UCD extract c.user.6" -w panel -p "Top Level Stack" \
+       -xy 0,218 -wh 138,130
+    manipulator "UCD extract c.user.6:Node Data" -w text -p "UCD extract c.user.6" \
+        -xy 10,10 -wh 118,22
+    manipulator "UCD extract c.user.6:node data" -w radio_buttons -p "UCD extract c.user.6" \
+        -xy 10,32 -wh 118,88
+   panel "Create MPEG.user.7" -w panel -p "Top Level Stack" -xy 0,218 -wh 256,466
+    manipulator "Create MPEG.user.7:filename" -w browser -p "Create MPEG.user.7" \
+        -xy 10,10 -wh 236,314
+    manipulator "Create MPEG.user.7:Pause" -w toggle -p "Create MPEG.user.7" \
+        -xy 10,324 -wh 118,22
+    manipulator "Create MPEG.user.7:Forget it" -w oneshot -p "Create MPEG.user.7" \
+        -xy 10,346 -wh 118,22
+    manipulator "Create MPEG.user.7:Make it" -w oneshot -p "Create MPEG.user.7" \
+        -xy 10,368 -wh 118,22
+    manipulator "Create MPEG.user.7:Repeat" -w oneshot -p "Create MPEG.user.7" \
+        -xy 10,390 -wh 118,22
+    manipulator "Create MPEG.user.7:Size" -w text -p "Create MPEG.user.7" \
+        -xy 10,412 -wh 236,22
+    manipulator "Create MPEG.user.7:Frame" -w text -p "Create MPEG.user.7" \
+        -xy 10,434 -wh 236,22
+   panel "UCD minmax c.user.8" -w panel -p "Top Level Stack" -xy 0,218 -wh 200,172
+     panel "geometry viewer.user.4!display" -w container -p ui -xy 751,164 -wh 552,584\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.4":object -w none
+manipulator "geometry viewer.user.4":"Update Always" -w none
+manipulator "geometry viewer.user.4":"Update Image" -w none
+# End of file

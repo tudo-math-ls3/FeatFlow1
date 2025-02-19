@@ -1,0 +1,75 @@
+--------------------------------------------------------------------------------
+         INPUT DATA
+--------------------------------------------------------------------------------
+ Parametrization file = #pre/test.prm                                               
+ Coarse grid file     = #adc/2dcomp.tri                                             
+ Integer parameters of /IPARM/,etc. :
+--------------------------------------------------------------------------------
+ minimum mg-level:  NLMIN =            1
+ maximum mg-level:  NLMAX =            5
+ element type   =            3
+ Stokes calculation:  ISTOK =            0
+ RHS    generation   =            0
+ Boundary generation =            0
+ Error evaluation    =            0
+ mass evaluation     =            0
+ lumped mass eval.   =            1
+ convective part     =            0
+ Accuracy for ST     =            4
+ Accuracy for B      =            3
+ ICUB mass matrix        =            3
+ ICUB diff. matrix       =            4
+ ICUB conv. matrix       =            4
+ ICUB matrices B1,B2     =            8
+ ICUB right hand side    =            1
+ minimum of nonlinear iterations: INLMIN =            1
+ maximum of nonlinear iterations: INLMAX =           20
+ type of mg-cycle:  ICYCLE =            0
+ minimum of linear mg steps :  ILMIN =            1
+ maximum of linear mg steps :  ILMAX =           20
+ type of interpolation:  IINT =            2
+ type of smoother :  ISM =            1
+ type of solver :  ISL =            1
+ number of smoothing steps :  NSM =            4
+ number of solver steps :  NSL =          100
+ factor sm. steps on coarser lev.:NSMFAC=           1
+ KPRSM,KPOSM ON LEVEL:            1           4           4
+ KPRSM,KPOSM ON LEVEL:            2           4           4
+ KPRSM,KPOSM ON LEVEL:            3           4           4
+ KPRSM,KPOSM ON LEVEL:            4           4           4
+ KPRSM,KPOSM ON LEVEL:            5           4           4
+ KPRSM,KPOSM ON LEVEL:            6           4           4
+ KPRSM,KPOSM ON LEVEL:            7           4           4
+ KPRSM,KPOSM ON LEVEL:            8           4           4
+ KPRSM,KPOSM ON LEVEL:            9           4           4
+ Real parameters of /RPARM/,etc. :
+--------------------------------------------------------------------------------
+ Viscosity parameter:  1/NU =    1000.0000000000000     
+ parameter for Samarskij-upwind:  UPSAM =   0.25000000000000000     
+ lower limit for optimal OMEGA: OMGMIN =    0.0000000000000000     
+ upper limit for optimal OMEGA: OMGMAX =    2.0000000000000000     
+ start value for optimal OMEGA: OMGINI =    1.0000000000000000     
+ limit for U-defects   :        EPSD   =    1.0000000000000001E-005
+ limit for DIV-defects :        EPSDIV =    1.0000000000000000E-008
+ limit for U-changes :          EPSUR  =    1.0000000000000001E-005
+ limit for P-changes :          EPSPR  =    1.0000000000000001E-005
+ defect improvement  :          DMPD   =   0.10000000000000001     
+ damping of MG residuals     :  DMPMG  =   0.10000000000000001     
+ limit for MG residuals      :  EPSMG  =   0.10000000000000001     
+ damping of residuals for solving:  DMPSL =   0.10000000000000001     
+ limit of changes for solving:    EPSSL =   0.10000000000000001     
+ relaxation for the U-smoother: RLXSM =    1.0000000000000000     
+ relaxation for the U-solver :  RLXSL =   0.80000000000000004     
+ lower limit optimal MG-ALPHA: AMINMG =   -10.000000000000000     
+ upper limit optimal MG-ALPHA: AMAXMG =    10.000000000000000     
+ Parameters of /NS.../ :
+--------------------------------------------------------------------------------
+ Time dependency          : ISTAT  =            0
+ Number of time steps     : NITNS  =            2
+ limit for time derivative: EPSNS  =    1.0000000000000001E-005
+ Total time               : TIMENS =    0.0000000000000000     
+ Theta                    : THETA  =    1.0000000000000000     
+ Time step                : TSTEP  =   0.10000000000000001     
+ Fractional step          : IFRSTP =            1
+ Stepsize for nonsteady savings: INSAV =            0
+ Number of files               : INSAVN =            0

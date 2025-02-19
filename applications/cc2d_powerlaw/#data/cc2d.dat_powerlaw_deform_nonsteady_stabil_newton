@@ -1,0 +1,123 @@
+======================================================================
+File for input data for cc2d
+======================================================================
+unit numbers and file names on /FILES/:
+-----------------------------------------------
+1                  IMESH  (0=FEAT-parametrization,1=OMEGA)
+0                  IRMESH (0=create mesh,>0=read (>1: formatted))
+'#pre/bench1.prm'  CPARccM  (name of parametrization file)
+'#adc/bench1.tri'  CMESH  (name of coarse mesh file)
+'#data/cc2d.out'   (name of protocol file)
+ 0                 ISTART (0=ZE2RO,1=NLMAX,2=NLMAX-1,- =formatted)
+'#data/DX'         CSTART (name of start solution file)
+ 0                 ISOL   (0=no,1=unformatted,-1=formatted)
+'#data/DX'         CSOL   (name of final solution file)
+------------------------------------------------
+Values for /OUTPUT/ :
+-----------------------------------------------
+0   M 
+0   MT
+0   ICHECK
+2   MSHOW     (1=file output,2=1+term. output)
+------------------------------------------------
+Values for /IPARM/,etc :
+------------------------------------------------
+1   NLMIN     (minimum mg-level)
+4   NLMAX     (maximum mg-level)
+3   IELT      (0=E031,1=E030,2=E031M,3=E030M: type of element used )
+3   IELTNEWTON(0=E031,1=E030,2=E031M,3=E030M: element used for newton part )
+0   IELTJUMP  (0=E031,1=E030,2=E031M,3=E030M: element used for jump stabil )
+0   ISTOK     (1=Stokes calculation)
+0   IRHS      (0=zero,1=steady inhomog.,2=nonsteady force)
+0   IBDR      (0=DIRICHLET,1=Pressure drop,2=NEUMANN part)
+0   IERANA    (>0=error analysis (=quadrature formula))
+1   ICHDEF    (1=l_2-Def.,2=l_inf,3=L_2,4=L_inf,<0=relativ)
+0   IMASSu    (0=lumped mass,1=real mass matrix)
+1   IMASSL    (0=usual lumping,1=diagonal lumping)
+1   IUPW      (1=upwind,0=SD)
+4   IPRECA    (0=s-prec,1=d-prec,2/3 from disk for M/ST,4=all new)
+3   IPRECB    (0=single,1=double,2=1 on elements for B,3/4=with 2)
+3   ICUBM     (cubature formula for M)
+8   ICUBA     (cubature formula for ST)
+8   ICUBN     (cubature formula for N)
+8   ICUBB     (    -  "  -      for B)
+1   ICUBF     (    -  "  -      for F)
+8   ICUBNEWTON(cubature formula for NEWTON TERM)
+1   INLMIN    (min nonlinear it.,1=lin extrap.,-1=const extrap.)
+40  INLMAX    (max nonlinear it.,1=lin extrap.,-1=const extrap.)
+0   ICYCLE    (type of mg-cycle for U: 0=F,1=V,2=W)
+2   ILMIN     (minimum of linear mg steps)
+10  ILMAX     (maximum of linear mg steps)
+2   IINT      (press. interp.:p	1/-1 const.,2/-2 bilin.)
+1   ISM       (U-smoother:1=VANCA-diag,2=Vanc-full
+1   ISL       (U-solver  :1=VANCA-diag,2=Vanca-full, 3=Exakte Invert.)
+4   NSM       (number of pre/postsmoothing steps)
+500 NSL       (maximum of solver-iterations)
+1   NSMFAC    (factor for pre/postsm. steps on coarser levels)
+0   IFIXMIN   (minimum fixed point iteration before full newton)
+0   IFIXMAX   (maximum fixed point iteration before full newton)
+1   INEWTON   (1=newton method, 0=fixed point method)  
+1   ISPGRAD   (1=symetric par of gradient, 0=gradient formulation)
+1   IJUMP     (1=add jump stabilization, 0=without jump)   
+------------------------------------------------
+Values for /RPARM/,etc. :
+------------------------------------------------
+1.0d0    RE   (Viscosity parmeter 1/NU)         
+0.5d0	 PLA  (THE power law exponent:VISCOSITY=1/RE*(||D||^2)^(-PLA/2))
+1.0d-2   PLE  (Epsilon to avoid the the case ||D||=0)
+1        IMODEL (0=elasticity, 1=powerlaw, 2=carreau, see supwdg.f)
+0.0d0    DNPWSTART (relax. param of Newton part for stress term in fixpoint )
+0.0d0    DNNS (relaxation param of Newton part for conv. term in fixpoint )
+1.0d-2   DTOLERNEW (tolerence for switch to full Newton method)
+0.5d0    DJUMP  (relaxation parameter for the jump )
+1.0D-1   UPSAM (parameter for upwind/SD)
+1.0D-1   OMGMIN (lower limit for opt. OMEGA,<0 no rel. changes) 
+1.0D0    OMGMAX (upper limit for opt. OMEGA,<0 no rel. changes)
+1.0D0    OMGINI (start value limit for opt. OMEGA)
+1.0D-8   EPSD   (limit for U-defects)
+1.0D-8   EPSDIV (limit for DIV-defects)
+1.0D-2   EPSUR  (limit for U-changes)
+1.0D-2   EPSPR  (limit for P-changes)
+1.0D-2   DMPD   (limit for defect improvement)
+1.0D-2   DMPMG  (damping of residuals for mg-it.)
+1.0D-2   EPSMG  (limit for residuals for mg-it.)
+1.0D-2   DMPSL  (damping of residuals for solving)
+1.0D-2    EPSSL  (limit for residuals for solving)
+1.0      RLXSM  (relaxation for the smoother)
+1.0      RLXSL  (relaxation for the solver)
+1.0D0    AMINMG (lower limit for optimal MG-ALPHA)
+1.0D0    AMAXMG (upper limit for optimal MG-ALPHA)
+-----------------------------------------------
+Values for /NS.../ :
+------------------------------------------------
+1             ISTAT   (0=steady,1=nonsteady)
+10             NITNS   (number of macro time steps)
+1D-5          EPSNS   (lower limit for time derivative)
+0.000000000D0 TIMENS  (absolute start time)
+0.5d0         THETA   (parameter for one step scheme)
+1.000000000D-1 TSTEP   (start time step size)
+0             IFRSTP  (0=one step scheme,1=fractional step)
+0             INSAV   (0=no,>0=stepsize for saving sol. vector)
+0             INSAVN  (modulo number of files (max=10))
+0.000000000D0 DTFILM  (time difference for film output)
+0.000000000D0 DTAVS   (time difference for AVS output)
+0.1000000000D0 DTGMV   (time difference for GMV output)
+0             IFUSAV  (level for unformatted velocity)
+0             IFPSAV  (level for unformatted pressure)
+0             IFXSAV  (level for unformatted streamlines)
+0             IAVS    (level for AVS-output)
+8             IGMV    (level for GMV-output)
+0             IFINIT  (start file number for film)
+3            IADTIM  (0=no,1=pred(no BNL),2=pred,3=2+rep,<0=+extr)
+100.00000000D0 TIMEMX  (max. absolute time)
+0.000001000D0 DTMIN   (min. time step)
+1.000000001D0 DTMAX   (max. time step)
+9.000000001D0 DTFACT  (max. changes for time step)
+1.000000000D0 TIMEIN  (time for start procedure)
+1.25D-2       EPSADI  (low   accuracy for acceptance in start)
+1.25D-4       EPSADL  (low   accuracy for acceptance after start)
+0.50D0        EPSADU  (upper limit for acceptance for |IADTIM|=3)
+1             IEPSAD  (1=u(L2),2=u(MX),3=p(L2),4=p(MX),5-8=mix)
+2             IADIN   (0=constant,1=linear,2=logarith. start)
+3             IREPIT  (max. number of repetitions for |IADTIM|=3
+

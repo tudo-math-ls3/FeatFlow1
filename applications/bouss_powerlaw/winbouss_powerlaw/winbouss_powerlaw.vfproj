@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="8.00" ProjectIdGuid="{6FFCEB51-06EC-40B2-8079-55CFBD98AD6B}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="$(ProjectDir)\..;$(ProjectDir)\..\include" CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" Traceback="true" RuntimeLibrary="rtSingleThreadedDebug" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/winbouss_powerlaw.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" ProgramDatabaseFile="$(OUTDIR)/winbouss_powerlaw.pdb" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration>
+		<Configuration Name="Release|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" MustRebuild="true" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..">
+				<Tool Name="VFMidlTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" AdditionalIncludeDirectories="$(ProjectDir)\..;$(ProjectDir)\..\include" CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" SwitchesHaveChanged="true" MustRebuild="true" OutputFile="$(OUTDIR)/winbouss_powerlaw.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\indat2d.f"/>
+		<File RelativePath="..\parq2d.f"/>
+		<Filter Name="src">
+		<File RelativePath="..\src\avs2d.f"/>
+		<File RelativePath="..\src\bmul.f"/>
+		<File RelativePath="..\src\bndry.f"/>
+		<File RelativePath="..\src\bouss.f"/>
+		<File RelativePath="..\src\coeff.f"/>
+		<File RelativePath="..\src\dfkt.f"/>
+		<File RelativePath="..\src\error.f"/>
+		<File RelativePath="..\src\fpost.f"/>
+		<File RelativePath="..\src\gupwd.f"/>
+		<File RelativePath="..\src\hwahl.f"/>
+		<File RelativePath="..\src\init1.f"/>
+		<File RelativePath="..\src\matmul.f"/>
+		<File RelativePath="..\src\mgcort.f"/>
+		<File RelativePath="..\src\mgrout.f"/>
+		<File RelativePath="..\src\nsdef.f"/>
+		<File RelativePath="..\src\optcnl.f"/>
+		<File RelativePath="..\src\oralB.f"/>
+		<File RelativePath="..\src\projma.f"/>
+		<File RelativePath="..\src\prostp.f"/>
+		<File RelativePath="..\src\rdparm.f"/>
+		<File RelativePath="..\src\supwdgn.f"/>
+		<File RelativePath="..\src\tcalc.f"/>
+		<File RelativePath="..\src\tdef.f"/>
+		<File RelativePath="..\src\tdfkt.f"/>
+		<File RelativePath="..\src\trand.f"/>
+		<File RelativePath="..\src\trsort.f"/>
+		<File RelativePath="..\src\tupwdg.f"/>
+		<File RelativePath="..\src\util.f"/>
+		<File RelativePath="..\src\xmrout.f"/>
+		<File RelativePath="..\src\zvalue1.f"/></Filter></Filter>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\include\bouss.inc"/>
+		<File RelativePath="..\include\common.inc"/>
+		<File RelativePath="..\include\dwork.inc"/>
+		<File RelativePath="..\nwork.inc"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath="..\#data\bouss_powerlaw.dat"/></Filter></Files>
+	<Globals/></VisualStudioProject>

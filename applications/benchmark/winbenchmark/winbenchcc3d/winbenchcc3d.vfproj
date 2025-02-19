@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="8.00" ProjectIdGuid="{1EBFD5D0-AF9E-412A-A2C2-BE446D73DA49}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..\..">
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="$(ProjectDir)\..\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" Traceback="true" RuntimeLibrary="rtSingleThreadedDebug" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" MustRebuild="true" OutputFile="$(OUTDIR)/winbenchcc3d.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" ProgramDatabaseFile="$(OUTDIR)/winbenchcc3d.pdb" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration>
+		<Configuration Name="Release|Win32" DeleteExtensionsOnClean="*.obj;*.mod;*.pdb;*.asm;*.map;*.dyn;*.dpi;*.tmp;*.log;*.ilk;*.exe;$(TargetPath)" MustRebuild="true" Command="$(TargetPath)" WorkingDirectory="$(ProjectDir)\..\..">
+				<Tool Name="VFMidlTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" HeaderFileName="$(InputName).h" TypeLibraryName="$(IntDir)/$(InputName).tlb"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFFortranCompilerTool" SwitchesHaveChanged="true" SuppressStartupBanner="true" AdditionalIncludeDirectories="$(ProjectDir)\..\.." CallingConvention="callConventionCRef" ModulePath="$(INTDIR)/" ObjectFile="$(INTDIR)/" CompileOnly="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFLinkerTool" SwitchesHaveChanged="true" MustRebuild="true" OutputFile="$(OUTDIR)/winbenchcc3d.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFResourceCompilerTool" ResourceOutputFileName="$(IntDir)/$(InputName).res"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<Filter Name="altsrc">
+		<File RelativePath="..\..\altsrc\cc3d\gupwd.f"/>
+		<File RelativePath="..\..\altsrc\cc3d\nsdef.f"/>
+		<File RelativePath="..\..\altsrc\cc3d\optcnl.f"/></Filter>
+		<File RelativePath="..\..\indat3d.f"/>
+		<File RelativePath="..\..\parq3d.f"/>
+		<Filter Name="src">
+		<File RelativePath="..\..\..\cc3d\src\avs3d.f"/>
+		<File RelativePath="..\..\..\cc3d\src\bmul.f"/>
+		<File RelativePath="..\..\..\cc3d\src\bndry.f"/>
+		<File RelativePath="..\..\..\cc3d\src\cc3d.f"/>
+		<File RelativePath="..\..\..\cc3d\src\coeff.f"/>
+		<File RelativePath="..\..\..\cc3d\src\dfkt.f"/>
+		<File RelativePath="..\..\..\cc3d\src\error.f"/>
+		<File RelativePath="..\..\..\cc3d\src\fpost.f"/>
+		<File RelativePath="..\..\..\cc3d\src\init1.f"/>
+		<File RelativePath="..\..\..\cc3d\src\matmul.f"/>
+		<File RelativePath="..\..\..\cc3d\src\mgrout.f"/>
+		<File RelativePath="..\..\..\cc3d\src\mgstp.f"/>
+		<File RelativePath="..\..\..\cc3d\src\rdparm.f"/>
+		<File RelativePath="..\..\..\cc3d\src\supwdg.f"/>
+		<File RelativePath="..\..\..\cc3d\src\util.f"/>
+		<File RelativePath="..\..\..\cc3d\src\vanca.f"/>
+		<File RelativePath="..\..\..\cc3d\src\xmrout.f"/>
+		<File RelativePath="..\..\..\cc3d\src\zvalue1.f"/></Filter></Filter>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\..\cc3d.inc"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath="..\..\#data\cc3d.dat"/>
+		<File RelativePath="..\..\#data\cc3d.dat_sdg"/>
+		<File RelativePath="..\..\#data\cc3d.dat_upw"/></Filter></Files>
+	<Globals/></VisualStudioProject>

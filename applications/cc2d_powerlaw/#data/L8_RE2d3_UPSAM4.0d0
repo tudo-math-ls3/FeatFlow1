@@ -1,0 +1,153 @@
+--------------------------------------------------------------------------------
+         INPUT DATA
+--------------------------------------------------------------------------------
+ Parametrization file = 
+ #pre/cavity.prm                                             
+ Coarse grid file     = 
+ #adc/cavity.tri                                             
+ Integer parameters of /IPARM/,etc. :
+--------------------------------------------------------------------------------
+ minimum mg-level:  NLMIN =  2
+ maximum mg-level:  NLMAX =  8
+ element type   =  3
+ element type for newton term   =  3
+ element type for newton term   =  3
+ Stokes calculation:  ISTOK =  0
+ RHS    generation   =  0
+ Boundary generation =  0
+ Error evaluation    =  8
+ Error evaluation    =  1
+ mass evaluation     =  0
+ lumped mass eval.   =  0
+ convective part     =  0
+ Accuracy for ST     =  4
+ Accuracy for B      =  3
+ ICUB mass matrix        =  3
+ ICUB diff. matrix       =  8
+ ICUB conv. matrix       =  8
+ ICUB matrices B1,B2     =  8
+ ICUB right hand side    =  1
+ ICUB FOR NEWTON TERM= 1
+ minimum of nonlinear iterations: INLMIN =  1
+ maximum of nonlinear iterations: INLMAX =  1500
+ type of mg-cycle:  ICYCLE =  0
+ minimum of linear mg steps :  ILMIN =  1
+ maximum of linear mg steps :  ILMAX =  550
+ type of interpolation:  IINT =  2
+ type of smoother :  ISM =  2
+ type of solver :  ISL =  2
+ number of smoothing steps :  NSM =  16
+ number of solver steps :  NSL =  900
+ factor sm. steps on coarser lev.:NSMFAC= 1
+ KPRSM,KPOSM ON LEVEL:  1 16 16
+ KPRSM,KPOSM ON LEVEL:  2 16 16
+ KPRSM,KPOSM ON LEVEL:  3 16 16
+ KPRSM,KPOSM ON LEVEL:  4 16 16
+ KPRSM,KPOSM ON LEVEL:  5 16 16
+ KPRSM,KPOSM ON LEVEL:  6 16 16
+ KPRSM,KPOSM ON LEVEL:  7 16 16
+ KPRSM,KPOSM ON LEVEL:  8 16 16
+ KPRSM,KPOSM ON LEVEL:  9 16 16
+ Use just Def-Tensor for OUTER it.:  IGRAD =  0
+ Use just Def-Tensor for PRECOND.:  IPRECO =  0
+ Real parameters of /RPARM/,etc. :
+--------------------------------------------------------------------------------
+ Viscosity parameter:  1/NU =   2000.
+ Power-law parameter:  ALPHA =   0.
+ Power-law parameter:  EPSILON =   0.01
+ EXTERIOR CYLIDER :  DCU1 =   0.
+ INTERIOR CYLIDER :  DCU1 =   0.1
+  THE MEAN VALUE OF THE PRESSURE =  -2.
+ DIFFERENT TYPE OF MODEL:  IMODEL =  1
+ NEWTON FOR DEPPENDENT PRESSURE  =  0
+ RELAXATION PARA. FOR NEWT. PRESSURE  =   0.
+ COEFF FOR PRESSURE :  ALPHA =   1.
+ COEFF FOR PRESSURE :  BETA =   0.68
+ FOR PRESSURE :  DEPSI1 =  -1.E+50
+ FOR PRESSURE :  DEPSI2 =  -1.E+50
+ Newton method for Power-law  =   0.
+ Newton method for convective term: DNNS=  0.
+ THE TOLERNECE FOR NEWTON :DTOLERNEW=  1.E-05
+ Relaxation parameter for the jump: DJUMP=  0.01
+ parameter for Samarskij-upwind:  UPSAM =   4.
+ lower limit for optimal OMEGA: OMGMIN =   0.7
+ upper limit for optimal OMEGA: OMGMAX =   0.7
+ start value for optimal OMEGA: OMGINI =   0.7
+ limit for U-defects   :        EPSD   =   1.E-12
+ limit for DIV-defects :        EPSDIV =   1.E-12
+ limit for U-changes :          EPSUR  =   0.1
+ limit for P-changes :          EPSPR  =   0.1
+ defect improvement  :          DMPD   =   0.1
+ damping of MG residuals     :  DMPMG  =   0.1
+ limit for MG residuals      :  EPSMG  =   0.1
+ damping of residuals for solving:  DMPSL =   0.1
+ limit of changes for solving:    EPSSL =   0.1
+ relaxation for the U-smoother: RLXSM =   0.9
+ relaxation for the U-solver :  RLXSL =   0.9
+ lower limit optimal MG-ALPHA: AMINMG =   1.
+ upper limit optimal MG-ALPHA: AMAXMG =   1.
+ Parameters of /NS.../ :
+--------------------------------------------------------------------------------
+ Time dependency          : ISTAT  =  0
+ Number of time steps     : NITNS  =  10000000
+ limit for time derivative: EPSNS  =   0.001
+ Total time               : TIMENS =   0.
+ Theta                    : THETA  =   0.5
+ Time step                : TSTEP  =   0.008333334
+ Fractional step          : IFRSTP =  0
+ Stepsize for nonsteady savings: INSAV =  5
+ Number of files               : INSAVN =  10
+ Time step for Film            : DTFILM =   0.
+ Time step for AVS             : DTAVS =   1.
+ Time step for GMV             : DTGMV =   0.25
+ Level for velocity            : IFUSAV =  0
+ Level for pressure            : IFPSAV =  0
+ Level for streamlines         : IFXSAV =  0
+ Level for AVS                 : IAVS =  0
+ Level for GMV                 : IGMV =  6
+ Start file                    : IFINIT =  0
+ Type of adaptivity            : IADTIM =  -1
+ Max. Time                     : TIMEMX =   3.
+ Min. Timestep                 : DTMIN  =   1.E-06
+ Max. Timestep                 : DTMAX  =   1.
+ Max. Timestep change          : DTFACT =   4.
+ Time for start procedure      : TIMEIN =   1.
+ EPS for start procedure       : EPSADI =   0.00125
+ EPS for acceptance            : EPSADL =   0.000125
+ EPS for not acceptance        : EPSADU =   0.25
+ Acceptance criterion          : IEPSAD =  1
+ Start procedure               : IADIN  =  2
+ Max.numbers of repetitions    : IREPIT =  3
+ ZBV- Variable 1    : IZBV1 =  8
+ ZBV- Variable 2    : IZBV2 =  8
+ ZBV- Variable 3    : IZBV3 =  4
+ ZBV- Variable 4    : IZBV3 =  1
+--------------------------------------------------------------------------------
+ ILEV,NVT,NMT,NEL,NVBD:  1 9 12 4 8
+ ILEV,NVT,NMT,NEL,NVBD:  2 25 40 16 16
+ ILEV,NVT,NMT,NEL,NVBD:  3 81 144 64 32
+ ILEV,NVT,NMT,NEL,NVBD:  4 289 544 256 64
+ ILEV,NVT,NMT,NEL,NVBD:  5 1089 2112 1024 128
+ ILEV,NVT,NMT,NEL,NVBD:  6 4225 8320 4096 256
+ ILEV,NVT,NMT,NEL,NVBD:  7 16641 33024 16384 512
+ ILEV,NVT,NMT,NEL,NVBD:  8 66049 131584 65536 1024
+
+ time for grid generation :   2.36064121
+
+ ILEV,NU,NA,NB: 2 40 232 64
+ ILEV,NU,NA,NB: 3 144 912 256
+ ILEV,NU,NA,NB: 4 544 3616 1024
+ ILEV,NU,NA,NB: 5 2112 14400 4096
+ ILEV,NU,NA,NB: 6 8320 57472 16384
+ ILEV,NU,NA,NB: 7 33024 229632 65536
+ ILEV,NU,NA,NB: 8 131584 918016 262144
+
+
+ time for initialization of linear operators :   0.581910849
+
+
+--------------------------------------------------------------------------------
+ IT RELU     RELP     DEF-U    DEF-DIV  DEF-TOT  RHONL    RHO   RHOMG
+--------------------------------------------------------------------------------
+  0                   0.25E-03 0.00E+00 0.25E-03     Deformationstensor  0  0
+--------------------------------------------------------------------------------

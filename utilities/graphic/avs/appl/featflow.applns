@@ -1,0 +1,29 @@
+#	"@(#)AVS.applns	7.5 Stellar 92/04/24"
+#			Copyright 1989 by
+#			Stellar Computer Inc.
+#			All Rights Reserved
+#	
+#	This software comprises unpublished confidential information of
+#	Stellar Computer Inc. and may not be used, copied or made
+#	available to anyone, except in accordance with the license
+#	under which it is furnished.
+#	
+#	
+#
+# AVS Application File
+#
+# builtin AVS2 Image Viewer
+# builtin AVS2 Volume Viewer
+# builtin AVS Demo
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_ANNO Gitter
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_PROBE Probe
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_CURL Rotation
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_HOG Vektor
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_GRAPH 2D->3D Plot
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_MOV_VL Movie VectorLines
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_MOV_VS Movie VectorShad
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_ISO_VECMAG 3D Isovektor
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_ISO_U 3D Isoflaechen
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_MOV_S Movie Shading
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_MOV_L Movie Lines
+/home/cerberus5/featflow/sources/featflow1.2_new/featflow/graphic/avs/appl/nets/UCD_MOV_V Movie Vektor

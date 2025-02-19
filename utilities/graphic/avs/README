@@ -1,0 +1,7 @@
+Change appropriately the values of:
+
+Applications
+DataDirectory
+NetworkDirectory
+
+in the file "avsrc" and the file names in "appl/featflow.applns" !!!

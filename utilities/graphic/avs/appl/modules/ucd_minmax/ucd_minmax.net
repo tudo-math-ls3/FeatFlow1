@@ -1,0 +1,104 @@
+#!/usr/bin/avs -network
+version 4.0 (25.104 wb)
+module "read ucd.user.1" -xy 678,12 -ex $Path/avs_library/ucd_multm
+module "generate colormap.user.2" -xy 518,12
+module "ucd to geom.user.3" -xy 628,262 -ex $Path/avs_library/ucd_multm
+module "geometry viewer.user.4" -xy 638,332
+module "ucd minmax.user.5" -xy 648,112 -ex /user/ianc/avs/experiments/ucd_minmax/ucd_minmax
+module "ucd legend.user.6" -xy 558,212 -ex $Path/avs_library/ucd_legend
+port_connect "read ucd.user.1":0 "ucd minmax.user.5":0
+port_connect "generate colormap.user.2":0 "ucd legend.user.6":1
+port_connect "ucd to geom.user.3":0 "geometry viewer.user.4":0
+port_connect "ucd minmax.user.5":0 "ucd legend.user.6":0
+port_connect "ucd minmax.user.5":0 "ucd to geom.user.3":0
+port_connect "ucd legend.user.6":0 "ucd to geom.user.3":1
+parm_set "read ucd.user.1":"read file" $Path/data/ucd/avs.inp
+parm_set "ucd minmax.user.5":Min -2.000000000
+parm_set "ucd minmax.user.5":Max 25.000000000
+geom_set_scene -scene "geometry viewer.user.4"
+geom_resize_camera -view "Camera 1" 562 299
+#
+# State for view: Camera 1
+#
+geom_set_position -view "Camera 1" 0.000000 0.000000 -12.000000
+geom_set_renderer "Hardware Renderer" -view "Camera 1"
+geom_set_view_modes -depth_cue 0 -view "Camera 1"
+geom_set_view_modes -z_buffer 1 -view "Camera 1"
+#
+# Light state
+#
+geom_set_light -light 1 -type directional -state 1
+geom_set_light -type ambient -state 1
+#
+# State for object: top
+#
+geom_set_cur_cli_obj top
+geom_set_matrix   -mat \
+                  0.194213    -0.024654    0.109259    0.000000 \
+                    -0.000732    0.218413    0.050586    0.000000 \
+                    -0.112003    -0.044177    0.189123    0.000000 \
+                    -0.453737    0.169392    -4.215743    1.000000 
+geom_set_obj_window -3.400000 25.400000 -1.900000 8.900000 -3.000000 33.000000
+#
+# State for object: "ucd geom"
+#
+geom_set_cur_cli_obj -push
+geom_set_name_context "ucd to geom.user.3"
+geom_create_obj "ucd geom" -mod "ucd to geom.user.3"
+geom_set_trans_mode parent
+geom_set_obj_window -3.400000 25.400000 -1.900000 8.900000 -3.000000 33.000000
+geom_set_cur_cli_obj -pop
+shell "ui" shell
+ panel Application -w app_panel -p ui -xy 0,0 -wh 260,1024
+  panel "Top Level Stack" -w master_stack -p Application -xy 2,100 -wh 256,718
+   panel "read ucd.user.1" -w panel -p "Top Level Stack" -xy 0,64 -wh 256,214
+    manipulator "read ucd.user.1:read file" -w browser -p "read ucd.user.1" \
+        -xy 10,10 -wh 236,194
+   panel "generate colormap.user.2" -w panel -p "Top Level Stack" \
+       -xy 0,64 -wh 256,566
+    manipulator "generate colormap.user.2:colormap" -w color_editor -p "generate colormap.user.2" \
+        -xy 10,10 -wh 236,416
+    manipulator "generate colormap.user.2:lo value" -w dial -p "generate colormap.user.2" \
+        -xy 10,426 -wh 90,130
+    manipulator "generate colormap.user.2:hi value" -w dial -p "generate colormap.user.2" \
+        -xy 100,426 -wh 90,130
+   panel "ucd to geom.user.3" -w panel -p "Top Level Stack" -xy 0,64 -wh 228,390
+    manipulator "ucd to geom.user.3:Shrink" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd to geom.user.3:Shrink Factor" -w idial -p "ucd to geom.user.3" \
+        -xy 128,10 -wh 90,130\
+   -P title string "Shrink Factor"
+    manipulator "ucd to geom.user.3:Geometry Display Mode" -w text -p "ucd to geom.user.3" \
+        -xy 10,140 -wh 177,22
+    manipulator "ucd to geom.user.3:mode" -w radio_buttons -p "ucd to geom.user.3" \
+        -xy 10,162 -wh 177,66
+    manipulator "ucd to geom.user.3:Explode Materials" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,228 -wh 118,22
+    manipulator "ucd to geom.user.3:Explode Factor" -w idial -p "ucd to geom.user.3" \
+        -xy 128,228 -wh 90,130
+    manipulator "ucd to geom.user.3:Save Geometry" -w toggle -p "ucd to geom.user.3" \
+        -xy 10,358 -wh 118,22
+   panel "ucd minmax.user.5" -w panel -p "Top Level Stack" -xy 0,152 -wh 200,201
+    manipulator "ucd minmax.user.5:Min" -w dial -p "ucd minmax.user.5" \
+        -xy 10,10 -wh 90,130
+    manipulator "ucd minmax.user.5:Max" -w dial -p "ucd minmax.user.5" \
+        -xy 100,10 -wh 90,130
+    manipulator "ucd minmax.user.5:Freeze Mesh" -w toggle -p "ucd minmax.user.5" \
+        -xy 36,154 -wh 118,22
+   panel "ucd legend.user.6" -w panel -p "Top Level Stack" -xy 0,64 -wh 228,412
+    manipulator "ucd legend.user.6:Node Data" -w text -p "ucd legend.user.6" \
+        -xy 10,10 -wh 118,22
+    manipulator "ucd legend.user.6:node data" -w radio_buttons -p "ucd legend.user.6" \
+        -xy 10,32 -wh 118,66
+    manipulator "ucd legend.user.6:range" -w toggle -p "ucd legend.user.6" \
+        -xy 10,142 -wh 118,22
+    manipulator "ucd legend.user.6:value" -w dial -p "ucd legend.user.6" \
+        -xy 128,142 -wh 90,130
+    manipulator "ucd legend.user.6:lo value" -w dial -p "ucd legend.user.6" -hide \
+        -xy 10,272 -wh 90,130
+    manipulator "ucd legend.user.6:hi value" -w dial -p "ucd legend.user.6" -hide \
+        -xy 100,272 -wh 90,130
+ panel "geometry viewer.user.4!display" -w container -p ui -xy 261,383 -wh 602,371\
+   -P zoom_coords string "0 0 0 0 0 <$NULL> 0 0 0 0"
+manipulator "geometry viewer.user.4":object -w none
+# End of file

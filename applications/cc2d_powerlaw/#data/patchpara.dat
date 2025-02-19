@@ -1,0 +1,46 @@
+======================================================================
+Zweites Eingabefile zu cc2d; Daten fuer die Blockung
+Die zugehoerigen COMMON Bloecke stehen in block.inc
+======================================================================
+		Anisotrope Verfeinerung
+======================================================================
+.f.  BANISO (falls:.true. erfolgt anisotrope Verf. am Rande)
+5	       IRefLv (Level, bei dem mit der aniostropen Verf. begonnen wird)
+0.3	 OME1   Ome1 und Ome2 steuern, wie stark anisotrop
+0.3 	 OME2	verfeinert wird -an 2 versch Randstellen
+======================================================================
+                Blockung beim Vanca
+======================================================================
+-1   IBLOCK (fuer <=0 klassischer Vanca,>0 regelt Art der Blockung)
+.f.   BLOCSL (3falls .true. wird auf Grobg. exakt invertiert)
+.f.   BSAVEM (GG-Matrix wird abgespeichert)
+.f.   BLSKSA ( Falls .true., wird die LSK-Matrix auf Platte gespeichert)
+1     IFACTO (steuert, LU-Zerl. in PATCH genommen wird.1=blas, 2=UMFPACK)
+3     IINVER (Use >0!! steuert die Inv. auf den ungepatchten Elementen)
+======================================================================
+              Regelt, WANN geblockt wird
+======================================================================
+2D1       PSBARM  (adaptive coarse grid operator)
+2d1       PSBARP  (adaptive switching (AR's) for prol.)
+2d1       PSBARR  (adaptive switching (AR's) for rest.)
+1.4d0       PSBARB  (adaptive clustering for lmpsc)
+2D1       PSBARS  (adaptive switching (AR's) for smoothing)
+1D4       PSBVOL  (adaptive switching (volume changes) for prol.)
+======================================================================
+       	      Regelt max Patchgroesse
+======================================================================
+81          NSBLSM    (for patching)
+ 1          NSBLSL     (Startlevel fuer IBLOCK=3)
+======================1===============================================
+       	      Modifizierte Prolongation&Restriktion,Interpolation
+======================================================================
+2	MODINT  (>=0: klassisch, <0 modifiziert)
+2	IINTU
+-0	IINTP2
+
+
+
+
+
+
+

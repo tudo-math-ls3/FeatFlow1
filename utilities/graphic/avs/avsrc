@@ -1,0 +1,181 @@
+#		"@(#)avsrc.sparc	8.6 AVS 92/11/05"
+#			Copyright (c) 1991,1992 by
+#			Advanced Visual Systems Inc.
+#			All Rights Reserved
+#	
+#	This software comprises unpublished confidential information of
+#	Advanced Visual Systems Inc. and may not be used, copied or made
+#	available to anyone, except in accordance with the license
+#	under which it is furnished.
+#	
+#	This file is under sccs control at AVS in:
+#	/sccs1.p/avs/gview/s.avsrc.sparc
+#	
+######################################################################
+#  Geometry and Image Viewer Options
+
+BoundingBox on
+#  If BoundingBox on is set, then Image Viewer and Geometry Viewer come up
+#  with their Bounding Box control already turned on. 
+
+#  NoHW 1 tells the AVS Geometry Viewer to not initialize any hardware
+#  renderer. NoHW 1 is used when you are running AVS as a remote X client.
+#
+# Set this to exclude Hardware (XGL) renderer in geom viewer camera menu
+#NoHW                            1
+
+Renderer "Software Renderer"
+#  Specifies which renderer will be the default selected in the Geometry
+#  Viewer when the first camera window is created.
+
+######################################################################
+#  AVS Color Usage Options:
+
+#Colors r g b gray
+#  This option controls how many cells of a system colormap AVS will
+#  attempt to allocate to itself when it starts.
+
+#  Controls the brightness of the display for all AVS windows except
+#  Geometry Viewer output windows produced with a hardware renderer.
+#
+# Set this for the GT because both X and XGL gamma correction is done by the
+# device when the VisualType is TrueColor; without this some modules will be
+# corrected twice (e.g. field legend)
+Gamma                           1.8
+
+#  This command may be necessary when you are seeing less color
+#  rendition than you know your display is capable of.  VisualType lets
+#  you specify a visualtype, either PseudoColor, TrueColor, or DirectColor.
+#
+# Set this for GS and GT to do fast (XGL, gamma corrected on GT) graphics;
+# the DefaultVisual is PseudoColor and software renderer would be used
+#VisualType                      TrueColor
+
+######################################################################
+#  User Interface Window Geometry Options
+
+#  Controls the default X Window System geometry of the display pixmap
+#  module's window.
+DisplayPixmapWindow             512x512+270+10
+
+#ModulePanelHeight <pixels>
+#  Controls the proportion of the Network Construction window devoted to
+#  the module Palette as opposed to the Workspace.
+
+#  Specifies the X Window system geometry of the Network Construction
+#  Window (Network Editor menu, Module Palette, and Workspace).
+#
+# Reasonable dimensions for a 1152x900 display (GX and GS)
+NetworkWindow                   848x848+250+20
+#
+# Corresponding dimensions for a 1280x1024 display (GT, GX-plus)
+#NetworkWindow                   960x960+290+30
+
+#  Specifies the size of AVS's virtual display in pixels, confining AVS
+#  to run within this area.
+#
+# this value good for olwm with "standard" border & title on 1152x900 display
+ScreenSize                      1080x868
+#
+# this value good for twm with border width of 2 and NoTitle
+#ScreenSize                      1120x896
+#
+# Corresponding dimensions for a 1280x1024 display (GT, GX-plus)
+#ScreenSize                      1208x992
+#ScreenSize                      1248x1020
+
+######################################################################
+#  Layout Editor Options:
+
+#GridSize 10
+#  Controls the size in pixels of the Layout Editor's alignment squares
+#  when Snap to Grid is switched on.
+
+#ImageAutomagnify off
+#  Turning this option "on" will restore the AVS2 behavior of
+#  automatically magnifying the image in a Display Image window.
+
+#ImageScrollbars on
+#  If set to off, suppresses the adding of scrollbars to display windows that
+#  are too small for the image they are currently displaying in Display Image.
+
+#StackSelector radio_buttons
+#  Setting StackSelector to choice_browser displays the module names as a
+#  scrolling list similar to the file browsers instead of radio_buttons.
+
+WindowMgr olwm
+#  This option ensures that the Network Editor's Layout Editor and the X
+#  Window System window manager that you are using work correctly together.
+#  Recognized values are:  awm, mwm, twm, uwm, olwm(Open Look), dxwm(Dec XUI).
+
+#XWarpPtr off
+#  Causes the mouse cursor to be automatically moved ("warped") into
+#  typein panels when they appear when this is turned on.
+
+######################################################################
+#  Pathname and file options:
+
+DataDirectory /home/people/featflow/data
+#  Specifies the directory in which the various AVS data input file
+#  browsers used in the subsystems and modules initially look for data files.
+
+#HelpPath $Path/runtime/help
+#  Expands the list of directories that AVS will search to find a
+#  module's documentation when you click Show Module Documentation.
+
+#Hosts $Path/runtime/hosts
+#  Gives the name of a "Hosts" file that lists machines, access
+#  methods, and directories of remote modules.
+
+#  Specifies which libraries of modules will be loaded into the Network
+#  Editor's module palette.
+ModuleLibraries                 
+                                $Path/avs_library/UCD \
+                                $Path/avs_library/Supported
+
+NetworkDirectory /home/people/featflow/featflow/graphic/avs/appl/nets
+#  Specifies the directory in which the AVS Network Editor initially will
+#  look for network files (Read Network and Write Network functions).
+
+#Path /usr/avs
+#  Specifies the directory tree in which AVS itself is installed.
+
+Applications  /home/people/featflow/featflow/graphic/avs/appl/featflow.applns
+#  Sets the file that AVS uses to build the large Applications menu.
+
+
+######################################################################
+#  Peripheral Device interfaces:
+
+#  Specifies devicefilespec as the serial communications port to which
+#  a dialbox device is attached.
+#DialDevice                      /dev/dialbox
+
+#  Indicates the serial communications port to which a Spaceball device
+#  is attached.
+#SpaceballDevice /dev/ttya
+
+######################################################################
+#  Basic operating parameters:
+
+#DirectModuleCommunication 1
+#  Turns direct module-to-module communication on or off.
+
+NetWriteAllParams on
+#  AVS saves only parameters that have been modified out to a network file.
+#  Setting this option to on, will enable saving all parameters, 
+
+#PrintNetwork lpr 
+#  The Network Editor's Print Network button normally sends output to
+#  your default printer.  This lets you specify an alternate print command.
+
+#ReadOnlySharedMemory 1
+#  Shared memory is normally "read only."  ReadOnlySharedMemory 0 allows
+#  shared memory to be written into.
+
+#SaveMessageLog off
+#  If set to the value on, causes the AVS message log to be preserved
+#  when the AVS session ends normally.
+
+#SharedMemory on
+#  Specifying SharedMemory off turns off AVS's shared memory feature.

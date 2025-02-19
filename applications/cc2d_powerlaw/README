@@ -1,0 +1,13 @@
+Compilation:
+
+1) Go to the cc2d_pwrlaw_stab/UMFPACK2.2.1 directory and edit the
+   Makefile there to suit your enviroment and compile the libumfpack.a
+   by issuing make command.
+
+2) Go to the cc2d_pwrlaw_stab/dev directory and edit the cc2d_dev.mk
+   file to reflect your featflow instalation. Then you can modify the
+   indat2d.f, supwdg.f to define your own setup. Compile by runing
+   make -f cc2d_dev.mk. Finaly edit the #data/cc2d.dat file for the
+   solver parameters, in the #data/ directory several example dat
+   files are provided.
+

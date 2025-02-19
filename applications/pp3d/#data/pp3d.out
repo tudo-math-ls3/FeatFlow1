@@ -1,0 +1,141 @@
+------------------------------------------------------------------------------------------------------
+         INPUT DATA
+------------------------------------------------------------------------------------------------------
+ Parametrization file = #pre/c2d.prm                                                
+ Coarse grid file     = #adc/c3d0.tri                                               
+ Integer parameters of /IPARM/,etc. :
+------------------------------------------------------------------------------------------------------
+ minimum mg-level:  NLMIN =            1
+ maximum mg-level:  NLMAX =            3
+ element type   =            3
+ Stokes calculation:  ISTOK =            0
+ RHS    generation   =            0
+ Boundary generation =            0
+ Error evaluation    =            0
+ mass evaluation     =            0
+ lumped mass eval.   =            2
+ convective part     =            1
+ Accuracy for ST     =            0
+ Accuracy for B      =            2
+ ICUB lumped mass matrix =            2
+ ICUB mass matrix        =            2
+ ICUB diff. matrix       =            7
+ ICUB conv. matrix       =            7
+ ICUB matrices B1,B2     =            7
+ ICUB right hand side    =            1
+ minimum of nonlinear iterations: INLMIN =            2
+ maximum of nonlinear iterations: INLMAX =            5
+ matrix resorting:  ISORTU =            0
+ type of mg-cycle:  ICYCU =            0
+ minimum of linear mg steps :  ILMINU =            1
+ maximum of linear mg steps :  ILMAXU =            9
+ type of interpolation:  IINTU =            1
+ type of smoother :  ISMU =            2
+ type of solver :  ISLU =            2
+ number of smoothing steps :  NSMU =            2
+ maximum of solver-iterations :  NSLU =          500
+ factor sm. steps on coarser lev.:NSMUFA=           1
+ matrix resorting:  ISORTP =            3
+ type of mg-cycle:  ICYCP =            0
+ minimum of linear mg steps :  ILMINP =            2
+ maximum of linear mg steps :  ILMAXP =           10
+ type of interpolation:  IINTP =            4
+ type of smoother :  ISMP =            4
+ type of solver :  ISLP =            4
+ number of smoothing steps :  NSMP =            1
+ maximum of solver-iterations :  NSLP =          500
+ factor sm. steps on coarser lev.:NSMPFA=           1
+ Real parameters of /RPARM/,etc. :
+------------------------------------------------------------------------------------------------------
+ Viscosity parameter:  1/NU =    5000.0000000000000     
+ parameter for Samarskij-upwind:  UPSAM =   0.25000000000000000     
+ lower limit for optimal OMEGA: OMGMIN =   0.50000000000000000     
+ upper limit for optimal OMEGA: OMGMAX =    1.5000000000000000     
+ start value for optimal OMEGA: OMGINI =    1.0000000000000000     
+ limit for U-changes :          EPSUR  =    1.0000000000000000E-002
+ limit for U-defects   :        EPSUD  =    1.0000000000000001E-005
+ damping of U-defects :         DMPUD  =   0.10000000000000001     
+ damping of U-MG residuals :    DMPUMG =   0.10000000000000001     
+ damping of solver residuals :  DMPUSL =    1.0000000000000000E-002
+ relaxation for the U-smoother: RLXSMU =    1.0000000000000000     
+ relaxation for the U-solver :  RLXSLU =    1.0000000000000000     
+ lower limit for opt. U-ALPHA:   AMINU  =   -10.000000000000000     
+ upper limit for opt. U-ALPHA:   AMAXU  =    10.000000000000000     
+ error reduction for p :        EPSP   =    1.0000000000000000E-008
+ damping of P-MG residuals :    DMPPMG =   0.10000000000000001     
+ damping of P_solver residuals: DMPPSL =    1.0000000000000000E-002
+ relaxation for the P-smoother: RLXSMP =    1.0000000000000000     
+ relaxation for the P-solver :  RLXSLP =    1.0000000000000000     
+ lower limit for opt. P-ALPHA:   AMINP  =   -10.000000000000000     
+ upper limit for opt. P-ALPHA:   AMAXP  =    10.000000000000000     
+ Parameters of /NS.../ :
+------------------------------------------------------------------------------------------------------
+ projection type          : IPROJ  =           -4
+ Number of time steps     : NITNS  =            3
+ limit for time derivative: EPSNS  =    1.0000000000000000E-003
+ Total time               : TIMENS =    0.0000000000000000     
+ Theta                    : THETA  =    1.0000000000000000     
+ Time step                : TSTEP  =    3.3333339999999999E-003
+ Fractional step          : IFRSTP =            1
+ Stepsize for nonsteady savings: INSAV =            0
+ Number of files               : INSAVN =            0
+ Time step for Film            : DTFILM =    0.0000000000000000     
+ Time step for AVS             : DTAVS =    1.0000000000000000     
+ Time step for GMV             : DTGMV =   0.10000000000000001     
+ Level for velocity            : IFUSAV =            0
+ Level for pressure            : IFPSAV =            0
+ Level for streamlines         : IFXSAV =            0
+ Level for AVS                 : IAVS =            3
+ Level for GMV                 : IGMV =            3
+ Start file                    : IFINIT =            0
+ Type of adaptivity            : IADTIM =           -1
+ Max. Time                     : TIMEMX =    9.0000000000000000     
+ Min. Timestep                 : DTMIN  =    9.9999999999999995E-007
+ Max. Timestep                 : DTMAX  =   0.10000000100000001     
+ Max. Timestep change          : DTFACT =    4.0000000010000001     
+ Time for start procedure      : TIMEIN =    1.0000000000000000     
+ EPS for start procedure       : EPSADI =    5.0000000000000001E-003
+ EPS for acceptance            : EPSADL =    5.0000000000000001E-004
+ EPS for not acceptance        : EPSADU =   0.25000000000000000     
+ Acceptance criterion          : IEPSAD =            1
+ Start procedure               : IADIN  =            2
+ Max.numbers of repetitions    : IREPIT =            3
+ Parameter for reactive prec.  : PRDIF1 =    1.0000000000000000     
+ Parameter for diffusive prec. : PRDIF2 =    1.0000000000000000     
+------------------------------------------------------------------------------------------------------
+ ILEV,NVT,NAT,NEL:           1         175         356          96
+ ILEV,NVT,NAT,NEL:           2        1062        2576         768
+ ILEV,NVT,NAT,NEL:           3        7276       19520        6144
+
+ time for grid initialization :    2.1981998113915324E-002
+
+ ILEV,NU,NA,NB:           1         356        3236         576
+ ILEV,NU,NA,NB:           2        2576       25616        4608
+ ILEV,NU,NA,NB:           3       19520      203840       36864
+
+ ILEV,NP,NC:           1          96         536
+ ILEV,NP,NC:           2         768        4832
+ ILEV,NP,NC:           3        6144       40832
+
+ time for initialization of linear operators :    5.7294003665447235E-002
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+MACRO STEP    1 AT TIME =  0.000D+00 WITH 1 STEP : DT1 =  0.100D-01
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+------------------------------------------------------------------------------------------------------
+ IT REL-U1   REL-U2   REL-U3   DEF-U1   DEF-U2   DEF-U3   RHONL    OMEGNL   RHOMG1   RHOMG2   RHOMG3
+------------------------------------------------------------------------------------------------------
+  0                                 NaN      NaN      NaN
+------------------------------------------------------------------------------------------------------
+  1      NaN      NaN      NaN      NaN      NaN      NaN      NaN      NaN 0.00D+00 0.00D+00 0.00D+00
+  2      NaN      NaN      NaN      NaN      NaN      NaN      NaN      NaN 0.00D+00 0.00D+00 0.00D+00
+  3      NaN      NaN      NaN      NaN      NaN      NaN      NaN      NaN 0.00D+00 0.00D+00 0.00D+00
+  4      NaN      NaN      NaN      NaN      NaN      NaN      NaN      NaN 0.00D+00 0.00D+00 0.00D+00
+  5      NaN      NaN      NaN      NaN      NaN      NaN      NaN      NaN 0.00D+00 0.00D+00 0.00D+00
+------------------------------------------------------------------------------------------------------
+  IT DIV-L2   RHOMGP
+------------------------------------------------------------------------------------------------------
+  10      NaN      NaN
+------------------------------------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
