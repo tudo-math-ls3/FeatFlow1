@@ -27,3 +27,19 @@ Optimization must be disabled:
 ```
 
 Please note that compatibility with other compiler versions, platforms, or build configurations has not been verified at this time.
+
+# How to run FF1 on Lido3
+```
+git clone git@github.com:tudo-math-ls3/FeatFlow1.git
+cd FeatFlow1/
+module load gcc/11.5.0
+chmod 750 bin/*
+make -j 4 libs
+cd applications/cc2d
+./cc2d
+make
+OR
+make -j 4 apps (build all apps)
+
+
+```
